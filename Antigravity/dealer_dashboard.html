@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Colours - Dealer Portal Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E11D48",
+                        "brand-purple": "#6366F1",
+                        "brand-red": "#E11D48",
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0F172A",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.25rem",
+                        "3xl": "1.75rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'card': '0 10px 30px -5px rgba(0, 0, 0, 0.04)',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+        .paint-splash-bg {
+            background: linear-gradient(135deg, #6366F1 0%, #E11D48 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .paint-splash-bg::after {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-slate-900 dark:text-slate-100 flex overflow-hidden">
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200/60 dark:border-slate-800 flex flex-col shrink-0 h-screen hidden md:flex">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 bg-brand-red rounded-xl flex items-center justify-center text-white shadow-lg shadow-brand-red/25">
+<span class="material-symbols-outlined text-2xl">palette</span>
+</div>
+<div>
+<h1 class="text-base font-extrabold leading-none tracking-tight">Modern Colours</h1>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mt-0.5">Dealer Portal</p>
+</div>
+</div>
+<nav class="flex-1 px-4 mt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-brand-red/10 text-brand-red rounded-xl font-bold transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-semibold transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-brand-red">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-semibold transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-brand-red">shopping_cart</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-semibold transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-brand-red">local_offer</span>
+<span>Offers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-semibold transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-brand-red">support_agent</span>
+<span>Support</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200/60 dark:border-slate-800">
+<div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
+<p class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase mb-2">My Credit</p>
+<div class="flex items-baseline gap-1">
+<span class="text-xl font-extrabold text-slate-900 dark:text-white">₹2.5L</span>
+<span class="text-[10px] text-emerald-600 font-bold">Available</span>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<header class="h-[72px] bg-white/80 backdrop-blur-md dark:bg-slate-900/80 border-b border-slate-200/60 dark:border-slate-800 px-8 flex items-center justify-between shrink-0">
+<div class="max-w-md w-full relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-xl h-10 pl-11 pr-4 text-sm font-medium focus:ring-2 focus:ring-brand-red/20 transition-all" placeholder="Search paints, codes, or tools..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="size-10 flex items-center justify-center rounded-full bg-slate-100/50 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700 relative">
+<span class="material-symbols-outlined text-[22px] text-slate-600 dark:text-slate-300">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-brand-red rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200/60 dark:border-slate-800">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-slate-900 dark:text-white leading-none">Rajesh Traders</p>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Diamond Dealer</p>
+</div>
+<div class="size-10 rounded-full bg-slate-200 overflow-hidden ring-2 ring-brand-red/10">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApbSj08gb4QFXOHA6L06buNEo0YS3aulfoeVdMwJ9xHHKM0d1lus1RqegjEwpvCW1zBQMuArGOk5OUZ1Ie6cu_ZzIZe9VVBOZcDU4NPscV83JPTUF_yKjyrhImqz66UOxWTw1UuyyGutpMW0r5pVg02D5TjWLQbq3xVSvCenubGGJvtZ9jAUD4uQePfnPboP8eNdy2u6-dpIcBT4quZYkewZhNQeFxPSfnXoYcC3ILQfIbYdp6_0eZrBeN5x3boUvo_yducQxiR4sJ"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-8 bg-slate-50/50 dark:bg-background-dark">
+<div class="max-w-[1400px] mx-auto grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-9 space-y-8">
+<section class="paint-splash-bg h-[240px] rounded-3xl p-10 flex items-center relative">
+<div class="z-10">
+<h2 class="text-white text-[32px] font-extrabold leading-tight tracking-tight">
+                                Welcome back,<br/>Rajesh Traders!
+                            </h2>
+<p class="text-white/80 mt-2 text-base font-medium leading-relaxed max-w-sm">
+                                Ready to refresh your stock? Check out today's exclusive dealer offers and new arrivals.
+                            </p>
+<button class="mt-8 flex items-center gap-2 bg-white text-brand-red hover:bg-slate-100 px-8 py-3 rounded-xl font-extrabold transition-all shadow-xl active:scale-95">
+<span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+                                Place New Order
+                            </button>
+</div>
+</section>
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-card border border-slate-100 dark:border-slate-700">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-indigo-500 bg-indigo-50 dark:bg-indigo-900/30 p-2.5 rounded-xl text-xl">shopping_bag</span>
+<span class="text-xs font-bold text-emerald-500">+12%</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider">Monthly Orders</p>
+<p class="text-2xl font-extrabold mt-1">24</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-card border border-slate-100 dark:border-slate-700">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-amber-500 bg-amber-50 dark:bg-amber-900/30 p-2.5 rounded-xl text-xl">local_shipping</span>
+<span class="text-xs font-bold text-slate-400">Stable</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider">Pending</p>
+<p class="text-2xl font-extrabold text-amber-500 mt-1">03</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-card border border-slate-100 dark:border-slate-700">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-emerald-500 bg-emerald-50 dark:bg-emerald-900/30 p-2.5 rounded-xl text-xl">account_balance_wallet</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider">Credit Limit</p>
+<p class="text-2xl font-extrabold mt-1">₹3.5L</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-card border border-slate-100 dark:border-slate-700">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-brand-purple bg-brand-purple/5 p-2.5 rounded-xl text-xl">military_tech</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider">Loyalty Pts</p>
+<p class="text-2xl font-extrabold mt-1">1,250</p>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-extrabold tracking-tight">Featured Categories</h3>
+<button class="text-brand-red text-xs font-extrabold hover:underline uppercase tracking-wider">Explore All</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-6">
+<div class="bg-white dark:bg-slate-800 p-4 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-card hover:border-brand-red/40 transition-all text-center group">
+<div class="aspect-square rounded-2xl bg-slate-50 dark:bg-slate-700/50 mb-3 overflow-hidden">
+<img alt="Interior" class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAcmjD8VWxPQLoXykvBH6O-4UsTHApR7i6weYJnAu_Bj9XBU_IYTgnqChJ-_3sau-_QGrfaJfeUZaPzqSsspZc0iCSvAszIhOLT5WnpRXvI3D_uTd1_XyS3lF6tHRc2X5nsZRzWtcpt0UOgOcGgKtmrcinDzBWwqNQC_XcqcVumkRu_DjZpxa0YO3wkUCe5Fi8gyDyDFey9G_s_Dve5oKh5Rm6bmrKivd2yJH1OX9f2VYURriUmc5CKTXdYRoBxTGmHy1_r0C1qkmo"/>
+</div>
+<span class="text-sm font-bold text-slate-700 dark:text-slate-300">Interior Paints</span>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-card hover:border-brand-red/40 transition-all text-center group">
+<div class="aspect-square rounded-2xl bg-slate-50 dark:bg-slate-700/50 mb-3 overflow-hidden">
+<img alt="Exterior" class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzWS6ocz3fH_Icw2DqLcWhTsWOm2i63mtwOaZTTtU4m2_AOkU-S16_GX7OuuGChw3-cP0i0X7Yo2QU279Q7x1Ldfp80_eArEx_Naa8X9ltN2jIlwr9F2UYd2LYREEhjqKdIW1V2WDL8kqaEheu_kVndvc8HtqtT88a0xh-rONDlZ1ooZuRPS1l9ityxvffiXJ5KQsU6u0FU8CG-SAIyIyJFDWC68ruakiibUmnsKXklLY0SKpcyWgbOecbB3Osk0Q-0ueBXyX9Ya6m"/>
+</div>
+<span class="text-sm font-bold text-slate-700 dark:text-slate-300">Exterior Finishes</span>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-card hover:border-brand-red/40 transition-all text-center group">
+<div class="aspect-square rounded-2xl bg-slate-50 dark:bg-slate-700/50 mb-3 overflow-hidden">
+<img alt="Wall Textures" class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3EDwNvn2Hz8cVMp1gI0TtFQ_sFV_Pf2P9TNiRh6mW6b6A1RixAHfOMBvX0J0DCE_LTMB4Ht7TNjI9RIs-Zm4LT0uopavc_wY-ABsnMQ3cLqGxpATQPUs3uJS0CmIUeFkBl19i9-ODoM-USCpI7jEDxTdLY8rXpqWm58tUAf4SEzixmaXcq6-3tkcFcTZd_V_SSN-SMABpOAfksO2SFPYfE7p2ft56lwuyJtja2MNB99ecc8SuV-1HplsWgzN4k1mD-fLs7IK5YvYP"/>
+</div>
+<span class="text-sm font-bold text-slate-700 dark:text-slate-300">Wall Textures</span>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-card hover:border-brand-red/40 transition-all text-center group">
+<div class="aspect-square rounded-2xl bg-slate-50 dark:bg-slate-700/50 mb-3 overflow-hidden">
+<img alt="Wood &amp; Metal" class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOpD1ir3ERkV9xsi-zqJR7XULe2IRr53UaYiQRerDBsDmh-FppWXhujYpTbkQxbcyXvXYzSOkiZj7cpQlhBqJdhpL80rhG3QKV3DrAMHolUwZfjwP41WwdHFBcWTzEMqCXZVLzv0glGIrexjI7qzH5RZcEjpcusLQy3m2kIZRBrOAgDUwPY8m6y_zUzIId3_5uTJJZn8eA840GXN-sjDr6qvuzuq0RjbkIgHzdU6SW3TM_z_tf-6-6cKvFDrJFeitaktsFe3p204T_"/>
+</div>
+<span class="text-sm font-bold text-slate-700 dark:text-slate-300">Wood &amp; Metal</span>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-card hover:border-brand-red/40 transition-all text-center group hidden xl:block">
+<div class="aspect-square rounded-2xl bg-slate-50 dark:bg-slate-700/50 mb-3 overflow-hidden flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-slate-300">format_paint</span>
+</div>
+<span class="text-sm font-bold text-slate-700 dark:text-slate-300">Primers &amp; Undercoats</span>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-lg font-extrabold mb-6 tracking-tight">Fast Moving Items</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-card group">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-xl bg-slate-50 dark:bg-slate-700/50 overflow-hidden shrink-0">
+<img alt="Premium Silk" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBa3JgCKK1Gg9E0P-gn_Gijmb-al9z4bJXKu9Hzt_OclmK9OsHLo2eOJ5rIEn-AN88aKbpxrBIeEsrAw9jh9apoe3iIpox7Ms2FfKVTp1Dn7dLa4_ssQ7IiouplDxukIS0Yj9s52KKJ9bem-Tk_2rRBeTX1AM5SVZRd6o6McwjgZ2L3C70Lje-jLfQvrl1d8leL9MogcWOzpMeoMYyooDLhqEWk8NAcpPmS-PQ_hYeF05mkC-e1Tky7vWfGIbgdy13Ffs8teFHWy_C"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-extrabold text-slate-800 dark:text-slate-100">Premium Silk Emulsion</p>
+<p class="text-[11px] text-slate-500 font-bold uppercase mt-1">Pure White - 20L</p>
+<div class="mt-3 flex items-center justify-between">
+<span class="text-sm font-extrabold">₹12,450</span>
+<button class="bg-brand-red/10 text-brand-red p-1.5 rounded-lg hover:bg-brand-red hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-card group">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-xl bg-slate-50 dark:bg-slate-700/50 overflow-hidden shrink-0">
+<img alt="WeatherShield" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnVYdb1M7y9VgKr8S0eskftD-oZWOjBK4wTPm2xO46YiloPrfOUFOlPA008pL8mYtJmOGTQlWblnTvXfbTvDE1kALsfR8uEspHUR49Jq0fCxWdIDLpnSrXoLZhYv5w__4ZxiqLFSGN5N0Cuky3AyDEzktKcVFPGuyDZfnNyEuE3Iy9hYj3DkNORJSa8a4Yl4ON1TtNsRYpB4t8oek_rij816L2glzbU7pgIcdW4uBEWZ0IppdB0fEXfEvuFDzUPw89LiJW6NtgeNL3"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-extrabold text-slate-800 dark:text-slate-100">WeatherShield Max</p>
+<p class="text-[11px] text-slate-500 font-bold uppercase mt-1">Royal Blue - 10L</p>
+<div class="mt-3 flex items-center justify-between">
+<span class="text-sm font-extrabold">₹8,900</span>
+<button class="bg-brand-red/10 text-brand-red p-1.5 rounded-lg hover:bg-brand-red hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-card group">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-xl bg-slate-50 dark:bg-slate-700/50 overflow-hidden shrink-0">
+<img alt="Premium Silk" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAcmjD8VWxPQLoXykvBH6O-4UsTHApR7i6weYJnAu_Bj9XBU_IYTgnqChJ-_3sau-_QGrfaJfeUZaPzqSsspZc0iCSvAszIhOLT5WnpRXvI3D_uTd1_XyS3lF6tHRc2X5nsZRzWtcpt0UOgOcGgKtmrcinDzBWwqNQC_XcqcVumkRu_DjZpxa0YO3wkUCe5Fi8gyDyDFey9G_s_Dve5oKh5Rm6bmrKivd2yJH1OX9f2VYURriUmc5CKTXdYRoBxTGmHy1_r0C1qkmo"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-extrabold text-slate-800 dark:text-slate-100">Silk Glamour High Glow</p>
+<p class="text-[11px] text-slate-500 font-bold uppercase mt-1">Ivory - 20L</p>
+<div class="mt-3 flex items-center justify-between">
+<span class="text-sm font-extrabold">₹11,200</span>
+<button class="bg-brand-red/10 text-brand-red p-1.5 rounded-lg hover:bg-brand-red hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<aside class="col-span-12 lg:col-span-3 space-y-8">
+<div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-card">
+<h3 class="font-extrabold text-slate-800 dark:text-slate-200 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-red">analytics</span>
+                            Credit Utilization
+                        </h3>
+<div class="w-full h-3 bg-slate-100 dark:bg-slate-700 rounded-full mb-4 overflow-hidden">
+<div class="h-full bg-brand-red rounded-full" style="width: 70%;"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] text-slate-400 font-bold uppercase">Used</p>
+<p class="text-sm font-extrabold">₹1.0L</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-slate-400 font-bold uppercase">Balance</p>
+<p class="text-sm font-extrabold text-emerald-500">₹2.5L</p>
+</div>
+</div>
+<button class="w-full mt-6 py-3 border border-slate-100 dark:border-slate-700 rounded-xl text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                            Request Limit Increase
+                        </button>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-card">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-extrabold text-slate-800 dark:text-slate-200">Recent Orders</h3>
+<button class="text-[10px] font-bold text-brand-red uppercase">History</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between pb-4 border-b border-slate-50 dark:border-slate-700">
+<div>
+<p class="text-xs font-bold text-slate-900 dark:text-white">#ORD-4921</p>
+<p class="text-[10px] text-slate-400 mt-0.5">2 Hours ago</p>
+</div>
+<span class="text-[10px] px-2 py-1 bg-amber-50 text-amber-600 rounded-md font-bold uppercase">Pending</span>
+</div>
+<div class="flex items-center justify-between pb-4 border-b border-slate-50 dark:border-slate-700">
+<div>
+<p class="text-xs font-bold text-slate-900 dark:text-white">#ORD-4890</p>
+<p class="text-[10px] text-slate-400 mt-0.5">Yesterday</p>
+</div>
+<span class="text-[10px] px-2 py-1 bg-emerald-50 text-emerald-600 rounded-md font-bold uppercase">Shipped</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-slate-900 dark:text-white">#ORD-4885</p>
+<p class="text-[10px] text-slate-400 mt-0.5">12 Oct, 2023</p>
+</div>
+<span class="text-[10px] px-2 py-1 bg-slate-50 text-slate-500 rounded-md font-bold uppercase">Delivered</span>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-card">
+<h3 class="font-extrabold text-slate-800 dark:text-slate-200 mb-6">Market Trends</h3>
+<div class="h-32 flex items-end gap-2 px-2">
+<div class="flex-1 bg-slate-100 dark:bg-slate-700 rounded-t-lg h-[60%] hover:bg-brand-red/30 transition-colors"></div>
+<div class="flex-1 bg-slate-100 dark:bg-slate-700 rounded-t-lg h-[80%] hover:bg-brand-red/30 transition-colors"></div>
+<div class="flex-1 bg-brand-red rounded-t-lg h-[95%]"></div>
+<div class="flex-1 bg-slate-100 dark:bg-slate-700 rounded-t-lg h-[50%] hover:bg-brand-red/30 transition-colors"></div>
+<div class="flex-1 bg-slate-100 dark:bg-slate-700 rounded-t-lg h-[75%] hover:bg-brand-red/30 transition-colors"></div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-slate-400 uppercase">
+<span>Mon</span>
+<span>Tue</span>
+<span>Wed</span>
+<span>Thu</span>
+<span>Fri</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</div>
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200/60 dark:border-slate-800 h-20 flex items-start justify-around px-2 pt-3 z-50 md:hidden">
+<div class="flex flex-col items-center text-brand-red">
+<span class="material-symbols-outlined text-2xl">dashboard</span>
+<span class="text-[10px] font-bold mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined text-2xl">inventory_2</span>
+<span class="text-[10px] font-medium mt-1">Products</span>
+</div>
+<div class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+<span class="text-[10px] font-medium mt-1">Orders</span>
+</div>
+<div class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined text-2xl">local_offer</span>
+<span class="text-[10px] font-medium mt-1">Offers</span>
+</div>
+</nav>
+
+</body></html>
