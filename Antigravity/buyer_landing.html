@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Colours - Buyer App</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1313",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#181111] dark:text-white transition-colors duration-300 min-h-screen">
+<!-- Top App Bar -->
+<nav class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<h2 class="text-[#181111] dark:text-white text-lg font-extrabold leading-tight tracking-tight flex-1 text-center font-display">Modern Colours</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex items-center justify-center rounded-full size-10 bg-primary/10 text-primary">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section with Integrated Dual Search -->
+<div class="relative w-full h-[520px] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Modern minimalist living room with vibrant accent wall" style='background-image: linear-gradient(rgba(0,0,0,0.2) 0%, rgba(248,246,246,1) 95%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAf7V2ob4oav20J6UduxERJQTia4I21k_Dk3FW-CmxrEAhXskv6Mpw8MNwniXwOjtxtlIDKBQhhNdVLJvKx_xyXDlTd6mDOowaBFUAX5hHQCW4iDHM7uzr7DcQgwrVED5QXSDwAXPMrKtVzmxSj2zwZ86H8sIcnpDHrM4zx7Z0ssWgwDtYXo_sitM9dIsxtXjR4Zu1ZCrRQI2-5plD7er4pAqtLUFR8TNTLX6OwuAYPykpln1hUjyukqGzvsNMWqZ3J9aB03NKye91L");'>
+</div>
+<div class="relative z-10 flex flex-col items-center justify-center h-full px-6 pt-12 text-center">
+<h1 class="text-[#181111] dark:text-white text-4xl font-extrabold leading-tight tracking-tight mb-4">
+                Find Your Perfect Paint &amp; Nearest Dealer
+            </h1>
+<p class="text-[#181111]/70 dark:text-white/70 text-base font-medium mb-8 max-w-xs">
+                Discover curated palettes and local availability in one place.
+            </p>
+<!-- Dual Search Bar -->
+<div class="w-full max-w-md bg-white dark:bg-[#2d1a1a] p-2 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 flex flex-col gap-2">
+<div class="flex flex-col gap-1 px-3 py-2 border-b border-gray-100 dark:border-gray-800 text-left">
+<span class="text-[10px] uppercase font-bold text-primary tracking-widest">Color</span>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 text-[#181111] dark:text-white placeholder:text-gray-400 text-sm" placeholder="What color? (e.g. Sage Green)" type="text"/>
+</div>
+<div class="flex items-center justify-between gap-2 px-3 py-1">
+<div class="flex flex-col gap-1 text-left flex-1">
+<span class="text-[10px] uppercase font-bold text-primary tracking-widest">Location</span>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 text-[#181111] dark:text-white placeholder:text-gray-400 text-sm" placeholder="Your city or zip" type="text"/>
+</div>
+<button class="bg-primary hover:bg-red-600 text-white rounded-lg h-12 w-12 flex items-center justify-center shadow-lg transition-transform active:scale-95">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Category Pills -->
+<div class="px-4 -mt-4 relative z-20">
+<div class="flex gap-3 overflow-x-auto hide-scrollbar pb-4">
+<div class="flex h-11 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-6 shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-white text-sm">home</span>
+<p class="text-white text-sm font-bold leading-normal">Interior</p>
+</div>
+<div class="flex h-11 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#2d1a1a] px-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm">park</span>
+<p class="text-[#181111] dark:text-white text-sm font-medium leading-normal">Exterior</p>
+</div>
+<div class="flex h-11 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#2d1a1a] px-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm">layers</span>
+<p class="text-[#181111] dark:text-white text-sm font-medium leading-normal">Textures</p>
+</div>
+<div class="flex h-11 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#2d1a1a] px-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm">format_paint</span>
+<p class="text-[#181111] dark:text-white text-sm font-medium leading-normal">Wood Care</p>
+</div>
+</div>
+</div>
+<!-- Section Header -->
+<div class="px-4 py-6">
+<h2 class="text-[#181111] dark:text-white text-2xl font-extrabold leading-tight tracking-tight">How It Works</h2>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Get your paint projects done in 4 simple steps.</p>
+</div>
+<!-- How It Works Cards -->
+<div class="px-4 grid grid-cols-1 gap-6 pb-32">
+<!-- Step 1 -->
+<div class="bg-white dark:bg-[#2d1a1a] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col">
+<div class="h-40 bg-[#fff5f5] dark:bg-[#3d1a1a] flex items-center justify-center relative">
+<div class="absolute top-4 left-4 size-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shadow-lg">1</div>
+<div class="w-24 h-24 bg-gradient-to-br from-primary to-orange-400 rounded-lg transform rotate-6 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white text-4xl">palette</span>
+</div>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-[#181111] dark:text-white">Choose Paint</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-2">Browse thousands of colors and curated palettes designed by experts.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-white dark:bg-[#2d1a1a] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col">
+<div class="h-40 bg-[#f0f7ff] dark:bg-[#1a253d] flex items-center justify-center relative">
+<div class="absolute top-4 left-4 size-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shadow-lg">2</div>
+<div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full transform -rotate-3 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white text-4xl">store</span>
+</div>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-[#181111] dark:text-white">Find Dealer</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-2">Locate the nearest authorized Modern Colours dealer in your neighborhood.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-white dark:bg-[#2d1a1a] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col">
+<div class="h-40 bg-[#fefce8] dark:bg-[#3d391a] flex items-center justify-center relative">
+<div class="absolute top-4 left-4 size-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shadow-lg">3</div>
+<div class="w-24 h-24 bg-gradient-to-br from-yellow-500 to-orange-300 rounded-xl transform rotate-12 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white text-4xl">add_shopping_cart</span>
+</div>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-[#181111] dark:text-white">Place Order</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-2">Order directly from the app and select your preferred pickup or delivery option.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="bg-white dark:bg-[#2d1a1a] rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col">
+<div class="h-40 bg-[#f0fdf4] dark:bg-[#1a3d20] flex items-center justify-center relative">
+<div class="absolute top-4 left-4 size-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shadow-lg">4</div>
+<div class="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-400 rounded-lg transform -rotate-6 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white text-4xl">local_shipping</span>
+</div>
+</div>
+<div class="p-5">
+<h3 class="text-lg font-bold text-[#181111] dark:text-white">Track Delivery</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-2">Stay updated with real-time tracking until the paint arrives at your doorstep.</p>
+</div>
+</div>
+</div>
+<!-- iOS Style Bottom Tab Bar -->
+<div class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-[#1a0c0c]/90 backdrop-blur-lg border-t border-gray-100 dark:border-gray-800 px-6 py-3 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-medium">Discover</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-medium">Orders</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</body></html>
