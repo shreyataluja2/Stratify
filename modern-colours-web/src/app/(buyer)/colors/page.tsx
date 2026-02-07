@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-// Sample color products
+// Sample color products matching the screenshot
 const colorProducts = [
     {
         id: '1',
@@ -11,7 +11,6 @@ const colorProducts = [
         code: 'SC-402',
         price: 45.00,
         image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=500&fit=crop',
-        isFavorite: false,
     },
     {
         id: '2',
@@ -19,31 +18,27 @@ const colorProducts = [
         code: 'VR-55',
         price: 51.00,
         image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=500&fit=crop',
-        isFavorite: false,
     },
     {
         id: '3',
-        name: 'Ocean Blue',
-        code: 'OB-128',
-        price: 42.00,
-        image: 'https://images.unsplash.com/photo-1558051815-0f18e64e6280?w=400&h=500&fit=crop',
-        isFavorite: true,
+        name: 'Terracotta',
+        code: 'TC-205',
+        price: 48.00,
+        image: 'https://images.unsplash.com/photo-1558618047-f4b511a880d3?w=400&h=500&fit=crop',
     },
     {
         id: '4',
         name: 'Forest Green',
         code: 'FG-301',
-        price: 48.00,
+        price: 42.00,
         image: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=400&h=500&fit=crop',
-        isFavorite: false,
     },
     {
         id: '5',
-        name: 'Terracotta',
-        code: 'TC-205',
+        name: 'Ocean Blue',
+        code: 'OB-128',
         price: 55.00,
-        image: 'https://images.unsplash.com/photo-1558618047-f4b511a880d3?w=400&h=500&fit=crop',
-        isFavorite: false,
+        image: 'https://images.unsplash.com/photo-1558051815-0f18e64e6280?w=400&h=500&fit=crop',
     },
     {
         id: '6',
@@ -51,7 +46,6 @@ const colorProducts = [
         code: 'SM-112',
         price: 39.00,
         image: 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=400&h=500&fit=crop',
-        isFavorite: true,
     },
 ];
 
@@ -60,9 +54,11 @@ const colorCategories = ['All', 'Red', 'Green', 'Yellow', 'Neutral', 'Blue'];
 export default function ColorExplorerPage() {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
-    const [favorites, setFavorites] = useState<Set<string>>(new Set(['3', '6']));
+    const [favorites, setFavorites] = useState<Set<string>>(new Set(['1', '2']));
 
-    const toggleFavorite = (id: string) => {
+    const toggleFavorite = (id: string, e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
         setFavorites(prev => {
             const next = new Set(prev);
             if (next.has(id)) {
@@ -75,15 +71,15 @@ export default function ColorExplorerPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#f8f6f6]">
+        <div className="bg-[#f8f6f6] min-h-screen">
             {/* Header */}
-            <header className="sticky top-0 z-40 bg-white border-b border-gray-100 px-4 py-3">
+            <header className="sticky top-0 z-40 bg-white px-4 py-3 border-b border-gray-100">
                 <div className="flex items-center justify-between">
-                    <button className="p-2">
+                    <button className="p-1">
                         <span className="material-symbols-outlined text-gray-700">menu</span>
                     </button>
-                    <h1 className="text-lg font-bold text-[#181111]">Color Explorer</h1>
-                    <button className="p-2">
+                    <h1 className="text-base font-bold text-[#181111]">Color Explorer</h1>
+                    <button className="p-1">
                         <span className="material-symbols-outlined text-gray-700">notifications</span>
                     </button>
                 </div>
@@ -93,7 +89,7 @@ export default function ColorExplorerPage() {
             <div className="px-4 py-4">
                 <div className="flex items-center gap-3">
                     <div className="flex-1 flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-gray-200">
-                        <span className="material-symbols-outlined text-gray-400">search</span>
+                        <span className="material-symbols-outlined text-gray-400 text-xl">search</span>
                         <input
                             type="text"
                             placeholder="Search color name"
@@ -102,8 +98,8 @@ export default function ColorExplorerPage() {
                             className="flex-1 bg-transparent outline-none text-sm text-[#181111] placeholder:text-gray-400"
                         />
                     </div>
-                    <button className="bg-primary text-white p-3 rounded-xl">
-                        <span className="material-symbols-outlined">tune</span>
+                    <button className="bg-primary text-white p-3 rounded-xl shrink-0">
+                        <span className="material-symbols-outlined text-xl">tune</span>
                     </button>
                 </div>
                 <p className="text-primary text-xs mt-2 px-1">
@@ -118,7 +114,7 @@ export default function ColorExplorerPage() {
                         <button
                             key={category}
                             onClick={() => setSelectedCategory(category)}
-                            className={`shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category
+                            className={`shrink-0 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${selectedCategory === category
                                     ? 'bg-[#181111] text-white'
                                     : 'bg-white text-[#181111] border border-gray-200'
                                 }`}
@@ -133,7 +129,11 @@ export default function ColorExplorerPage() {
             <div className="px-4 pb-24">
                 <div className="grid grid-cols-2 gap-4">
                     {colorProducts.map((product) => (
-                        <div key={product.id} className="bg-white rounded-2xl overflow-hidden shadow-sm">
+                        <Link
+                            key={product.id}
+                            href={`/products/${product.id}`}
+                            className="bg-white rounded-2xl overflow-hidden shadow-sm"
+                        >
                             <div className="relative aspect-[4/5]">
                                 <img
                                     src={product.image}
@@ -141,25 +141,25 @@ export default function ColorExplorerPage() {
                                     className="w-full h-full object-cover"
                                 />
                                 <button
-                                    onClick={() => toggleFavorite(product.id)}
+                                    onClick={(e) => toggleFavorite(product.id, e)}
                                     className="absolute top-3 right-3 bg-white rounded-full p-2 shadow-md"
                                 >
                                     <span
-                                        className={`material-symbols-outlined text-lg ${favorites.has(product.id) ? 'text-primary' : 'text-gray-400'}`}
-                                        style={favorites.has(product.id) ? { fontVariationSettings: "'FILL' 1" } : {}}
+                                        className={`material-symbols-outlined text-lg ${favorites.has(product.id) ? 'text-primary' : 'text-gray-300'}`}
+                                        style={{ fontVariationSettings: "'FILL' 1" }}
                                     >
                                         favorite
                                     </span>
                                 </button>
                             </div>
-                            <Link href={`/products/${product.id}`} className="block p-4">
+                            <div className="p-4">
                                 <h3 className="font-bold text-[#181111] text-sm mb-1">{product.name}</h3>
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-3">
                                     <span className="text-gray-400 text-xs">{product.code}</span>
                                     <span className="text-primary font-bold text-sm">${product.price.toFixed(2)}</span>
                                 </div>
-                            </Link>
-                        </div>
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>

@@ -1,117 +1,207 @@
+'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import Link from 'next/link';
 
-export default function BuyerTrackingPage() {
+export default function OrderTrackingPage() {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    const orderSteps = [
+        {
+            id: 1,
+            title: 'Order Placed',
+            description: 'Your order has been confirmed',
+            time: '10:30 AM',
+            completed: true,
+            icon: 'check'
+        },
+        {
+            id: 2,
+            title: 'Processing',
+            description: 'Dealer is preparing your order',
+            time: '11:15 AM',
+            completed: true,
+            icon: 'check'
+        },
+        {
+            id: 3,
+            title: 'Out for Delivery',
+            description: 'Your package is on its way',
+            time: '1:45 PM',
+            completed: true,
+            icon: 'check'
+        },
+        {
+            id: 4,
+            title: 'Arriving Soon',
+            description: 'Driver is nearby',
+            time: 'Est. 2:30 PM',
+            completed: false,
+            current: true,
+            icon: 'local_shipping'
+        },
+    ];
+
+    const navItems = [
+        { href: '/home', icon: 'home', label: 'Home' },
+        { href: '/products', icon: 'grid_view', label: 'Products' },
+        { href: '/orders/track', icon: 'local_shipping', label: 'Orders', active: true },
+        { href: '/offers', icon: 'local_offer', label: 'Offers' },
+        { href: '/support', icon: 'support_agent', label: 'Support' },
+    ];
+
     return (
-        <div className="max-w-4xl w-full mx-auto px-6 py-8 flex flex-col gap-6">
-            <div className="flex items-center gap-4 mb-2">
-                <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Track Order</h1>
-            </div>
+        <div className="bg-[#f8f6f6] min-h-screen">
+            {/* Sidebar Overlay */}
+            {sidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-black/50 z-[100]"
+                    onClick={() => setSidebarOpen(false)}
+                />
+            )}
 
-            {/* Order Details Card */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
-                <div className="space-y-1">
-                    <p className="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-widest">Order Details</p>
-                    <h3 className="text-3xl font-black text-slate-900 dark:text-white">#MC-88219</h3>
-                    <div className="flex items-center gap-4 mt-2">
-                        <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-bold rounded-full">In Transit</span>
-                        <p className="text-brand-red font-bold text-xl">$145.00</p>
+            {/* Sidebar Drawer */}
+            <div className={`fixed top-0 left-0 h-full w-64 bg-white z-[101] transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                }`}>
+                <div className="p-6">
+                    {/* Brand */}
+                    <div className="mb-8">
+                        <h1 className="text-primary font-extrabold text-xl tracking-tight">MODERN</h1>
+                        <h1 className="text-primary font-extrabold text-xl tracking-tight">COLOURS</h1>
                     </div>
-                </div>
-                <div className="w-32 h-32 rounded-xl overflow-hidden shadow-inner hidden md:block border border-slate-100 dark:border-slate-800">
-                    <img alt="Order Items" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeK_v-aSTaszs1BEnrWyu1z2iu7OLS2mOuHY6e82XAdhMAKsNMvbL57vIbX7kNTEwVCYgI9QpXYdM8E5F1lkyJjey5as4NL3J3NQXxvLM-yEeR9OrHJSD2tSIwI4g_kPF8mrBpeZOCIgLcv2lISjyc-JLqZzIrJqV4-slZ6mK4xxsatqpinOeflvbquPznW9eRiOOIhOImPoIe0vN4olNoskhY_NcQyojTBpD4ritGWqxDN2MdGW_leAh2rD9OR7AZhQJIye5I0yIq" />
-                </div>
-            </div>
 
-            {/* Delivery Progress */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-8">
-                <h4 className="text-lg font-bold mb-10 text-slate-900 dark:text-white">Delivery Progress</h4>
-                <div className="relative ml-4">
-                    {/* Step 1 */}
-                    <div className="flex gap-6 mb-12">
-                        <div className="relative flex flex-col items-center">
-                            <div className="w-8 h-8 rounded-full bg-brand-red flex items-center justify-center text-white z-10 shadow-lg shadow-brand-red/20">
-                                <span className="material-symbols-outlined text-sm">check</span>
-                            </div>
-                            <div className="absolute top-8 w-0.5 h-12 bg-brand-red"></div>
+                    {/* Navigation */}
+                    <nav className="space-y-1">
+                        {navItems.map((item) => (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={() => setSidebarOpen(false)}
+                                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${item.active
+                                        ? 'bg-primary/10 text-primary'
+                                        : 'text-gray-600 hover:bg-gray-50'
+                                    }`}
+                            >
+                                <span
+                                    className="material-symbols-outlined text-xl"
+                                    style={item.active ? { fontVariationSettings: "'FILL' 1" } : {}}
+                                >
+                                    {item.icon}
+                                </span>
+                                <span className={`text-sm ${item.active ? 'font-bold' : 'font-medium'}`}>
+                                    {item.label}
+                                </span>
+                            </Link>
+                        ))}
+                    </nav>
+                </div>
+
+                {/* User Profile at Bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-100">
+                    <div className="flex items-center gap-3">
+                        <div className="size-10 rounded-full bg-gray-200 flex items-center justify-center">
+                            <span className="material-symbols-outlined text-gray-500">person</span>
                         </div>
                         <div>
-                            <p className="font-bold text-lg text-slate-900 dark:text-white">Order Placed</p>
-                            <p className="text-slate-500 dark:text-slate-400 text-sm">Oct 12, 2023 • 09:00 AM</p>
-                        </div>
-                    </div>
-                    {/* Step 2 */}
-                    <div className="flex gap-6 mb-12">
-                        <div className="relative flex flex-col items-center">
-                            <div className="w-8 h-8 rounded-full bg-brand-red flex items-center justify-center text-white z-10 shadow-lg shadow-brand-red/20">
-                                <span className="material-symbols-outlined text-sm">check</span>
-                            </div>
-                            <div className="absolute top-8 w-0.5 h-12 bg-brand-red"></div>
-                        </div>
-                        <div>
-                            <p className="font-bold text-lg text-slate-900 dark:text-white">Confirmed</p>
-                            <p className="text-slate-500 dark:text-slate-400 text-sm">Oct 12, 2023 • 10:30 AM</p>
-                        </div>
-                    </div>
-                    {/* Step 3 */}
-                    <div className="flex gap-6 mb-12">
-                        <div className="relative flex flex-col items-center">
-                            <div className="w-8 h-8 rounded-full bg-brand-red flex items-center justify-center text-white z-10 shadow-lg shadow-brand-red/20">
-                                <span className="material-symbols-outlined text-sm">check</span>
-                            </div>
-                            <div className="absolute top-8 w-0.5 h-12 bg-brand-red"></div>
-                        </div>
-                        <div>
-                            <p className="font-bold text-lg text-slate-900 dark:text-white">Packed</p>
-                            <p className="text-slate-500 dark:text-slate-400 text-sm">Oct 13, 2023 • 08:15 AM</p>
-                        </div>
-                    </div>
-                    {/* Step 4 (Active) */}
-                    <div className="flex gap-6 mb-12">
-                        <div className="relative flex flex-col items-center">
-                            <div className="w-8 h-8 rounded-full bg-brand-red flex items-center justify-center text-white z-10 animate-pulse shadow-lg shadow-brand-red/20">
-                                <span className="material-symbols-outlined text-sm">local_shipping</span>
-                            </div>
-                            <div className="absolute top-8 w-0.5 h-12 bg-slate-200 dark:bg-slate-800"></div>
-                        </div>
-                        <div>
-                            <div className="flex items-center gap-3">
-                                <p className="font-bold text-lg text-slate-900 dark:text-white">Out for Delivery</p>
-                                <span className="px-2 py-0.5 bg-brand-red/10 text-brand-red text-[10px] font-bold uppercase rounded-full">Active</span>
-                            </div>
-                            <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Expected by 2:00 PM today</p>
-                            <p className="text-brand-red font-bold mt-1">Courier is 2 stops away</p>
-                        </div>
-                    </div>
-                    {/* Step 5 */}
-                    <div className="flex gap-6">
-                        <div className="relative flex flex-col items-center">
-                            <div className="w-8 h-8 rounded-full border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 flex items-center justify-center text-slate-300 z-10">
-                                <span className="material-symbols-outlined text-sm">home</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p className="font-bold text-lg text-slate-400">Delivered</p>
-                            <p className="text-slate-400 text-sm">Pending</p>
+                            <p className="font-semibold text-sm text-[#181111]">Alex Johnson</p>
+                            <p className="text-xs text-gray-500">Premium Member</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* Actions */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
-                <button className="flex-1 w-full h-12 bg-brand-red hover:bg-red-700 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-brand-red/20 text-sm">
-                    <span className="material-symbols-outlined text-[18px]">call</span>
-                    <span>Call Dealer</span>
+            {/* Header */}
+            <header className="sticky top-0 z-40 bg-white px-4 py-3 flex items-center border-b border-gray-100">
+                <button onClick={() => setSidebarOpen(true)} className="p-1 -ml-1">
+                    <span className="material-symbols-outlined text-gray-700">menu</span>
                 </button>
-                <button className="flex-1 w-full h-12 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all border border-slate-200 dark:border-slate-700 text-sm">
-                    <span className="material-symbols-outlined text-[18px]">help_outline</span>
-                    <span>Get Help</span>
+                <h1 className="flex-1 text-center text-base font-bold text-[#181111]">Track Order</h1>
+                <div className="w-8"></div>
+            </header>
+
+            {/* Order Info Card */}
+            <div className="p-4">
+                <div className="bg-white rounded-2xl p-4 shadow-sm">
+                    <div className="flex items-start justify-between mb-4">
+                        <div>
+                            <p className="text-[10px] uppercase tracking-wider text-gray-500 font-semibold">Order Details</p>
+                            <h2 className="text-xl font-bold text-[#181111] mt-1">#MC-78432</h2>
+                        </div>
+                        <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">In Transit</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Delivery Timeline */}
+            <div className="px-4">
+                <h3 className="text-sm font-bold text-[#181111] mb-4">Delivery Progress</h3>
+
+                <div className="relative pl-8">
+                    {/* Vertical Line */}
+                    <div className="absolute left-[15px] top-3 bottom-3 w-0.5 bg-gray-200"></div>
+                    <div className="absolute left-[15px] top-3 w-0.5 bg-primary" style={{ height: 'calc(75% - 12px)' }}></div>
+
+                    {orderSteps.map((step, index) => (
+                        <div key={step.id} className="relative mb-8 last:mb-0">
+                            {/* Step Icon */}
+                            <div className={`absolute -left-8 top-0 size-8 rounded-full flex items-center justify-center z-10 ${step.completed
+                                    ? 'bg-primary text-white'
+                                    : step.current
+                                        ? 'bg-primary text-white'
+                                        : 'bg-gray-200 text-gray-400'
+                                }`}>
+                                <span className="material-symbols-outlined text-lg">
+                                    {step.icon}
+                                </span>
+                            </div>
+
+                            {/* Step Content */}
+                            <div className={`${step.current ? 'bg-white rounded-xl p-3 shadow-sm -ml-2' : ''}`}>
+                                <div className="flex items-center gap-2">
+                                    <h4 className={`font-semibold text-sm ${step.completed || step.current ? 'text-[#181111]' : 'text-gray-400'}`}>
+                                        {step.title}
+                                    </h4>
+                                    {step.current && (
+                                        <span className="size-2 rounded-full bg-primary animate-pulse"></span>
+                                    )}
+                                </div>
+                                <p className={`text-xs mt-0.5 ${step.completed || step.current ? 'text-gray-500' : 'text-gray-400'}`}>
+                                    {step.description}
+                                </p>
+                                <p className={`text-xs mt-1 ${step.current ? 'text-primary font-semibold' : 'text-gray-400'}`}>
+                                    {step.time}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+
+                    {/* Final Delivery Icon */}
+                    <div className="relative">
+                        <div className="absolute -left-8 top-0 size-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 z-10">
+                            <span className="material-symbols-outlined text-lg">home</span>
+                        </div>
+                        <div>
+                            <h4 className="font-semibold text-sm text-gray-400">Delivered</h4>
+                            <p className="text-xs text-gray-400 mt-0.5">Package at your doorstep</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Call Dealer Button */}
+            <div className="p-4 mt-8">
+                <button className="w-full bg-primary text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                    <span className="material-symbols-outlined">call</span>
+                    Call Dealer
                 </button>
             </div>
 
-            <div className="mt-8 text-center">
-                <p className="text-slate-400 text-sm">Need more details about your delivery? <a className="text-brand-red font-bold hover:underline" href="#">Chat with us</a></p>
+            {/* Need Help */}
+            <div className="px-4 pb-8 text-center">
+                <p className="text-sm text-gray-500">
+                    Need more details?{' '}
+                    <Link href="/support" className="text-primary font-semibold">Contact Support</Link>
+                </p>
             </div>
         </div>
     );
