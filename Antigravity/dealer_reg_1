@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dealer Registration - Step 1 | Modern Colours Pvt. Ltd.</title>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1325",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221012",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar: Brand & Benefits -->
+<aside class="hidden lg:flex flex-col w-[400px] bg-gradient-to-br from-primary via-[#b90d1b] to-[#221012] p-12 text-white relative">
+<div class="flex items-center gap-3 mb-16">
+<div class="size-10 bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-2xl">format_paint</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Modern Colours</h2>
+</div>
+<div class="flex-1">
+<h1 class="text-4xl font-black leading-tight mb-6">Partner with India's Premier Paint Network</h1>
+<p class="text-white/80 text-lg mb-10 font-light">Join over 5,000+ dealers nationwide and transform your business with our cutting-edge logistics and supply chain tech.</p>
+<div class="space-y-8">
+<div class="flex gap-4 items-start">
+<div class="p-2 bg-white/10 rounded-lg">
+<span class="material-symbols-outlined text-primary-200">palette</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Premium Palette Access</h3>
+<p class="text-sm text-white/70">Exclusive access to over 2,000+ luxury paint shades and textures.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="p-2 bg-white/10 rounded-lg">
+<span class="material-symbols-outlined text-primary-200">inventory_2</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Real-time Inventory</h3>
+<p class="text-sm text-white/70">Cloud-based tracking for instant stock updates and easy replenishment.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="p-2 bg-white/10 rounded-lg">
+<span class="material-symbols-outlined text-primary-200">percent</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Exclusive Discounts</h3>
+<p class="text-sm text-white/70">Competitive margins and seasonal bonuses for high-performing dealers.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10">
+<p class="text-xs text-white/50 uppercase tracking-widest font-bold">Trusted by industry leaders since 1994</p>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full bg-white dark:bg-[#1a0c0e]">
+<!-- Top Nav / Progress Bar -->
+<nav class="px-10 py-6 border-b border-slate-100 dark:border-white/5 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-sm font-semibold text-primary uppercase tracking-wider">Step 1 of 6</span>
+<span class="text-slate-400">/</span>
+<span class="text-sm font-medium text-slate-500">Basic Information</span>
+</div>
+<div class="flex gap-4">
+<button class="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Help Center</button>
+<button class="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Contact Support</button>
+</div>
+</div>
+<!-- Multi-step progress bar -->
+<div class="grid grid-cols-6 gap-2 w-full">
+<div class="h-1.5 rounded-full bg-primary"></div>
+<div class="h-1.5 rounded-full bg-slate-100 dark:bg-white/10"></div>
+<div class="h-1.5 rounded-full bg-slate-100 dark:bg-white/10"></div>
+<div class="h-1.5 rounded-full bg-slate-100 dark:bg-white/10"></div>
+<div class="h-1.5 rounded-full bg-slate-100 dark:bg-white/10"></div>
+<div class="h-1.5 rounded-full bg-slate-100 dark:bg-white/10"></div>
+</div>
+</nav>
+<!-- Scrollable Form Container -->
+<div class="flex-1 overflow-y-auto px-10 py-12 lg:px-24">
+<div class="max-w-2xl">
+<header class="mb-10">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white mb-2">Basic Information</h2>
+<p class="text-slate-500 dark:text-slate-400">Provide the essential details to start your dealership application. Ensure all details match your legal documentation.</p>
+</header>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Business Name -->
+<div class="col-span-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Business Name</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">store</span>
+</div>
+<input class="w-full pl-11 pr-4 py-4 rounded-lg border-slate-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary transition-all placeholder:text-slate-400 dark:text-white" placeholder="Enter your registered business name" type="text"/>
+</div>
+</div>
+<!-- Owner Name -->
+<div class="col-span-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Owner / Proprietor Name</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</div>
+<input class="w-full pl-11 pr-4 py-4 rounded-lg border-slate-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary transition-all placeholder:text-slate-400 dark:text-white" placeholder="Full name as per PAN card" type="text"/>
+</div>
+</div>
+<!-- Email Address -->
+<div>
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<input class="w-full pl-11 pr-4 py-4 rounded-lg border-slate-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary transition-all placeholder:text-slate-400 dark:text-white" placeholder="name@business.com" type="email"/>
+</div>
+</div>
+<!-- Contact Number -->
+<div>
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Contact Number</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</div>
+<input class="w-full pl-11 pr-4 py-4 rounded-lg border-slate-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary transition-all placeholder:text-slate-400 dark:text-white" placeholder="+91 00000 00000" type="tel"/>
+</div>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-primary/5 border border-primary/10 flex gap-3 mt-8">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+<strong>Note:</strong> We will send a verification OTP to the provided mobile number and email address in the next step.
+                            </p>
+</div>
+</form>
+</div>
+</div>
+<!-- Sticky Footer Actions -->
+<footer class="px-10 py-8 border-t border-slate-100 dark:border-white/5 flex items-center justify-between bg-white/80 dark:bg-[#1a0c0e]/80 backdrop-blur-md">
+<button class="px-8 py-3 rounded-lg border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-white/5 transition-all">
+                    Cancel Application
+                </button>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-10 py-3 rounded-lg bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all hover:-translate-y-0.5 active:translate-y-0">
+                        Continue to Step 2
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</footer>
+</main>
+</div>
+</body></html>
