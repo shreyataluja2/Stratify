@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Colours Analytics Command Center</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9333ea",
+                        "brand-crimson": "#dc2626",
+                        "brand-magenta": "#d946ef",
+                        "brand-purple": "#7e22ce",
+                        "brand-yellow": "#eab308",
+                        "background-light": "#f8fafc",
+                        "glass-border": "rgba(255, 255, 255, 0.6)",
+                        "glass-surface": "rgba(255, 255, 255, 0.85)",
+                        "text-dark": "#0f172a",
+                        "text-muted": "#64748b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "header": ["Poppins", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer components {
+            .glass-panel {
+                @apply bg-[rgba(255,255,255,0.85)] backdrop-blur-md border border-[rgba(255,255,255,0.6)] shadow-sm;
+            }
+            .custom-scrollbar::-webkit-scrollbar {
+                width: 6px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb {
+                @apply bg-slate-200 rounded-full hover:bg-slate-300;
+            }
+        }
+        .forecast-svg {
+            filter: drop-shadow(0 4px 6px rgba(126, 34, 206, 0.1));
+        }
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 4px;
+        }
+        .heatmap-cell {
+            aspect-ratio: 1/1;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-background-light text-text-dark font-display overflow-x-hidden min-h-screen flex flex-col">
+<div class="relative flex h-full grow flex-col group/design-root">
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-gradient-to-r from-purple-50/90 via-fuchsia-50/90 to-yellow-50/90 border-b border-white/50">
+<div class="flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="lg:hidden text-slate-600 hover:text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-gradient-to-br from-brand-crimson to-brand-purple flex items-center justify-center text-white shadow-md shadow-purple-500/20">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+</div>
+<h2 class="text-text-dark text-xl font-header font-bold leading-tight tracking-tight hidden sm:block">
+                        Modern Colours <span class="bg-gradient-to-r from-brand-crimson to-brand-purple bg-clip-text text-transparent font-normal">Command Center</span>
+</h2>
+</div>
+</div>
+<div class="hidden md:flex flex-1 max-w-md mx-8">
+<label class="relative w-full flex items-center">
+<span class="absolute left-3 text-slate-400">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</span>
+<input class="w-full h-10 bg-white/60 border border-slate-200/60 rounded-lg pl-10 pr-4 text-sm text-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500/30 transition-all" placeholder="Search analytics or predictions..." type="text"/>
+</label>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center size-10 rounded-lg hover:bg-white/50 text-slate-600 transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 size-2 bg-rose-500 rounded-full"></span>
+</button>
+<div class="w-px h-6 bg-slate-300/50 mx-1"></div>
+<div class="flex items-center gap-3 pl-1">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-medium text-text-dark">Alex Morgan</p>
+<p class="text-[10px] text-slate-500">Analytics Lead</p>
+</div>
+<div class="size-9 rounded-full bg-cover bg-center border border-white shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBNcYVMStJ3bgCr8a4tJ__RKknJvTF73zEORN3wqqBvN7fC4EJeab7qFl_60w6VsBdTsxWo8YNpAtUCAmtncf43QbA2ATjmce7SAWRp7DIkA8j4uYafYW2xrA-EZbemlc9z1l8OhYvy8WZiFq3egRvKFRq0t6MnGCwyrV_EkqNytmZkTaUtDr6xI1nKkxLG-y6sXJ9M9TjgGIYsLma3NjA6Ni5ZW7tdrItY3xfojwI51bLgu0nTBVa-SpxqxQK978-DZE0cMtpU1o");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h1 class="text-3xl font-header font-bold text-text-dark tracking-tight">Analytics Dashboard</h1>
+<p class="text-slate-500 mt-1">Advanced multi-modal forecasting &amp; risk command center.</p>
+</div>
+<div class="flex gap-3">
+<button class="h-10 px-4 rounded-lg bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-medium transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+                    Parameters
+                </button>
+<button class="h-10 px-4 rounded-lg bg-gradient-to-r from-brand-purple to-brand-crimson hover:shadow-lg hover:shadow-purple-500/30 text-white text-sm font-medium transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">summarize</span>
+                    Generate Report
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="relative overflow-hidden group rounded-xl shadow-lg transition-all hover:scale-[1.02] bg-gradient-to-br from-brand-crimson to-brand-magenta text-white p-5">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-white/20 rounded-lg text-white backdrop-blur-sm">
+<span class="material-symbols-outlined">query_stats</span>
+</div>
+<span class="text-white text-xs font-bold bg-white/20 px-2 py-1 rounded-full border border-white/20">+2.1%</span>
+</div>
+<p class="text-white/90 text-sm font-medium">Forecast Accuracy</p>
+<h3 class="text-2xl font-header font-bold text-white mt-1">94.2%</h3>
+</div>
+<div class="glass-panel p-5 rounded-xl border-l-4 border-l-brand-purple">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-purple-50 rounded-lg text-brand-purple">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div class="w-16 h-8">
+<svg class="w-full h-full stroke-brand-purple stroke-2 fill-none" viewBox="0 0 100 30">
+<path d="M0 20 Q 10 5, 20 25 T 40 15 T 60 20 T 80 10 T 100 18"></path>
+</svg>
+</div>
+</div>
+<p class="text-slate-500 text-sm font-medium">Inventory Turnover</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-2xl font-header font-bold text-text-dark mt-1">8.5x</h3>
+<span class="text-[10px] text-rose-500 font-bold">-0.3%</span>
+</div>
+</div>
+<div class="glass-panel p-5 rounded-xl border-l-4 border-l-brand-yellow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-yellow-50 rounded-lg text-brand-yellow">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div class="w-16 h-8">
+<svg class="w-full h-full stroke-brand-yellow stroke-2 fill-none" viewBox="0 0 100 30">
+<path d="M0 25 Q 15 20, 30 15 T 50 10 T 70 5 T 100 8"></path>
+</svg>
+</div>
+</div>
+<p class="text-slate-500 text-sm font-medium">On-Time Delivery</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-2xl font-header font-bold text-text-dark mt-1">98.1%</h3>
+<span class="text-[10px] text-brand-purple font-bold">+1.5%</span>
+</div>
+</div>
+<div class="glass-panel p-5 rounded-xl border-l-4 border-l-brand-magenta">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-fuchsia-50 rounded-lg text-brand-magenta">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<span class="text-emerald-600 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-full">Optimal</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">System Reliability</p>
+<h3 class="text-2xl font-header font-bold text-text-dark mt-1">High</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 space-y-6">
+<div class="glass-panel p-6 rounded-xl relative">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="text-lg font-header font-semibold text-text-dark">Demand Forecast vs. Actual</h3>
+<p class="text-xs text-slate-500">Advanced predictive modeling with confidence interval</p>
+</div>
+<div class="flex items-center gap-4 text-[10px] font-medium">
+<div class="flex items-center gap-1.5"><span class="w-3 h-0.5 bg-brand-purple"></span> Actual</div>
+<div class="flex items-center gap-1.5"><span class="w-3 h-0.5 border-t border-dashed border-brand-magenta"></span> Forecast</div>
+<div class="flex items-center gap-1.5"><span class="w-3 h-2 bg-brand-magenta/10"></span> Confidence</div>
+</div>
+</div>
+<div class="h-64 relative mt-4">
+<svg class="w-full h-full forecast-svg" preserveAspectRatio="none" viewBox="0 0 800 200">
+<line stroke="#f1f5f9" stroke-width="1" x1="0" x2="800" y1="40" y2="40"></line>
+<line stroke="#f1f5f9" stroke-width="1" x1="0" x2="800" y1="80" y2="80"></line>
+<line stroke="#f1f5f9" stroke-width="1" x1="0" x2="800" y1="120" y2="120"></line>
+<line stroke="#f1f5f9" stroke-width="1" x1="0" x2="800" y1="160" y2="160"></line>
+<path d="M 400 120 L 480 90 L 560 110 L 640 70 L 720 100 L 800 60 L 800 140 L 720 170 L 640 140 L 560 180 L 480 160 L 400 120 Z" fill="rgba(217, 70, 239, 0.08)"></path>
+<path d="M 0 160 L 80 140 L 160 170 L 240 110 L 320 130 L 400 120" fill="none" stroke="#7e22ce" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 400 120 L 480 125 L 560 145 L 640 105 L 720 135 L 800 100" fill="none" stroke="#d946ef" stroke-dasharray="8 4" stroke-linecap="round" stroke-width="3"></path>
+<line stroke="#eab308" stroke-dasharray="4 4" stroke-width="1" x1="400" x2="400" y1="0" y2="200"></line>
+</svg>
+<div class="absolute top-0 left-[400px] -translate-x-1/2 bg-yellow-50 text-yellow-700 text-[10px] px-2 py-0.5 rounded border border-yellow-200 font-bold">TODAY</div>
+</div>
+<div class="flex justify-between mt-4 px-2 text-[10px] text-slate-400 font-mono">
+<span>WK 28</span><span>WK 29</span><span>WK 30</span><span>WK 31</span><span>WK 32</span><span>WK 33</span><span>WK 34</span><span>WK 35</span><span>WK 36</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glass-panel p-6 rounded-xl">
+<h3 class="text-sm font-header font-semibold text-text-dark mb-4">Regional Accuracy</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-xs mb-1.5 font-medium">
+<span class="text-slate-600">North Region</span>
+<span class="text-brand-purple">96.8%</span>
+</div>
+<div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-brand-purple w-[96.8%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1.5 font-medium">
+<span class="text-slate-600">South Region</span>
+<span class="text-brand-magenta">92.4%</span>
+</div>
+<div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-brand-magenta w-[92.4%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1.5 font-medium">
+<span class="text-slate-600">East Region</span>
+<span class="text-brand-crimson">88.5%</span>
+</div>
+<div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-brand-crimson w-[88.5%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1.5 font-medium">
+<span class="text-slate-600">West Region</span>
+<span class="text-brand-yellow">95.1%</span>
+</div>
+<div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-brand-yellow w-[95.1%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-sm font-header font-semibold text-text-dark">Risk Level Heatmap</h3>
+<div class="flex gap-1">
+<span class="size-2 rounded-sm bg-brand-purple"></span>
+<span class="size-2 rounded-sm bg-brand-magenta"></span>
+<span class="size-2 rounded-sm bg-brand-crimson"></span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-mono text-slate-400 w-8">NOR</span>
+<div class="heatmap-grid flex-1">
+<div class="heatmap-cell bg-brand-purple opacity-40"></div>
+<div class="heatmap-cell bg-brand-purple opacity-30"></div>
+<div class="heatmap-cell bg-brand-purple opacity-50"></div>
+<div class="heatmap-cell bg-brand-magenta opacity-40"></div>
+<div class="heatmap-cell bg-brand-magenta opacity-60"></div>
+<div class="heatmap-cell bg-brand-crimson opacity-30"></div>
+<div class="heatmap-cell bg-brand-crimson opacity-50"></div>
+<div class="heatmap-cell bg-brand-crimson opacity-90"></div>
+<div class="heatmap-cell bg-brand-purple opacity-40"></div>
+<div class="heatmap-cell bg-brand-purple opacity-40"></div>
+<div class="heatmap-cell bg-brand-purple opacity-30"></div>
+<div class="heatmap-cell bg-brand-purple opacity-20"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-mono text-slate-400 w-8">SOU</span>
+<div class="heatmap-grid flex-1">
+<div class="heatmap-cell bg-brand-purple opacity-20"></div>
+<div class="heatmap-cell bg-brand-purple opacity-20"></div>
+<div class="heatmap-cell bg-brand-purple opacity-40"></div>
+<div class="heatmap-cell bg-brand-purple opacity-60"></div>
+<div class="heatmap-cell bg-brand-purple opacity-40"></div>
+<div class="heatmap-cell bg-brand-purple opacity-30"></div>
+<div class="heatmap-cell bg-brand-purple opacity-20"></div>
+<div class="heatmap-cell bg-brand-purple opacity-30"></div>
+<div class="heatmap-cell bg-brand-magenta opacity-40"></div>
+<div class="heatmap-cell bg-brand-magenta opacity-80"></div>
+<div class="heatmap-cell bg-brand-magenta opacity-50"></div>
+<div class="heatmap-cell bg-brand-magenta opacity-40"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-mono text-slate-400 w-8">EST</span>
+<div class="heatmap-grid flex-1">
+<div class="heatmap-cell bg-brand-crimson opacity-20"></div>
+<div class="heatmap-cell bg-brand-crimson opacity-40"></div>
+<div class="heatmap-cell bg-brand-crimson opacity-60"></div>
+<div class="heatmap-cell bg-brand-crimson opacity-80"></div>
+<div class="heatmap-cell bg-brand-crimson opacity-100"></div>
+<div class="heatmap-cell bg-brand-crimson opacity-90"></div>
+<div class="heatmap-cell bg-brand-crimson opacity-70"></div>
+<div class="heatmap-cell bg-brand-magenta opacity-60"></div>
+<div class="heatmap-cell bg-brand-magenta opacity-50"></div>
+<div class="heatmap-cell bg-brand-purple opacity-40"></div>
+<div class="heatmap-cell bg-brand-purple opacity-30"></div>
+<div class="heatmap-cell bg-brand-purple opacity-20"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-mono text-slate-400 w-8">WST</span>
+<div class="heatmap-grid flex-1">
+<div class="heatmap-cell bg-brand-purple opacity-30"></div>
+<div class="heatmap-cell bg-brand-purple opacity-40"></div>
+<div class="heatmap-cell bg-brand-purple opacity-30"></div>
+<div class="heatmap-cell bg-brand-purple opacity-20"></div>
+<div class="heatmap-cell bg-brand-purple opacity-30"></div>
+<div class="heatmap-cell bg-brand-purple opacity-50"></div>
+<div class="heatmap-cell bg-brand-purple opacity-40"></div>
+<div class="heatmap-cell bg-brand-purple opacity-30"></div>
+<div class="heatmap-cell bg-brand-purple opacity-40"></div>
+<div class="heatmap-cell bg-brand-purple opacity-60"></div>
+<div class="heatmap-cell bg-brand-magenta opacity-50"></div>
+<div class="heatmap-cell bg-brand-magenta opacity-30"></div>
+</div>
+</div>
+<div class="flex justify-between text-[8px] text-slate-400 pt-1">
+<span>AUG 01</span><span>AUG 15</span><span>AUG 31</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glass-panel p-6 rounded-xl flex items-center justify-between">
+<div>
+<h3 class="text-sm font-header font-semibold text-text-dark mb-1">Inventory Health</h3>
+<p class="text-[10px] text-slate-500 mb-4">Current stock optimization</p>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2 text-[10px]"><span class="size-2 rounded-full bg-brand-purple"></span> Optimal (65%)</div>
+<div class="flex items-center gap-2 text-[10px]"><span class="size-2 rounded-full bg-brand-yellow"></span> Overstock (20%)</div>
+<div class="flex items-center gap-2 text-[10px]"><span class="size-2 rounded-full bg-brand-crimson"></span> Understock (15%)</div>
+</div>
+</div>
+<div class="relative size-24">
+<svg class="size-full" viewBox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="16" stroke="#eee" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#7e22ce" stroke-dasharray="65 100" stroke-dashoffset="0" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#eab308" stroke-dasharray="20 100" stroke-dashoffset="-65" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#dc2626" stroke-dasharray="15 100" stroke-dashoffset="-85" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-xs font-bold">12k</span>
+<span class="text-[8px] text-slate-500 uppercase">SKUs</span>
+</div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl flex items-center justify-between">
+<div>
+<h3 class="text-sm font-header font-semibold text-text-dark mb-1">Inventory Aging</h3>
+<p class="text-[10px] text-slate-500 mb-4">Stock lifecycle analysis</p>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2 text-[10px]"><span class="size-2 rounded-full bg-brand-purple"></span> &lt; 30 Days (72%)</div>
+<div class="flex items-center gap-2 text-[10px]"><span class="size-2 rounded-full bg-brand-magenta"></span> 30-60 Days (18%)</div>
+<div class="flex items-center gap-2 text-[10px]"><span class="size-2 rounded-full bg-slate-300"></span> &gt; 60 Days (10%)</div>
+</div>
+</div>
+<div class="relative size-24">
+<svg class="size-full" viewBox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="16" stroke="#eee" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#7e22ce" stroke-dasharray="72 100" stroke-dashoffset="0" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#d946ef" stroke-dasharray="18 100" stroke-dashoffset="-72" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#cbd5e1" stroke-dasharray="10 100" stroke-dashoffset="-90" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-xs font-bold">New</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="glass-panel rounded-xl overflow-hidden border-2 border-brand-purple/20 bg-gradient-to-br from-white to-purple-50/50">
+<div class="p-5 border-b border-purple-100 flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-purple">lightbulb</span>
+<h3 class="text-md font-header font-bold text-text-dark">Strategic Insights</h3>
+</div>
+<div class="p-5 space-y-4">
+<div class="flex gap-3">
+<div class="size-5 rounded-full bg-brand-purple/10 flex items-center justify-center shrink-0 mt-0.5">
+<div class="size-1.5 rounded-full bg-brand-purple"></div>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+<span class="font-bold text-brand-purple">Demand Spike:</span> Expected in <span class="font-semibold">East Region</span> over next 2 weeks due to seasonal procurement cycles.
+                            </p>
+</div>
+<div class="flex gap-3">
+<div class="size-5 rounded-full bg-brand-yellow/10 flex items-center justify-center shrink-0 mt-0.5">
+<div class="size-1.5 rounded-full bg-brand-yellow"></div>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+<span class="font-bold text-brand-yellow">Efficiency Alert:</span> Re-allocating 15% stock from West to North could reduce lead times by 22 hours.
+                            </p>
+</div>
+<div class="flex gap-3">
+<div class="size-5 rounded-full bg-brand-crimson/10 flex items-center justify-center shrink-0 mt-0.5">
+<div class="size-1.5 rounded-full bg-brand-crimson"></div>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+<span class="font-bold text-brand-crimson">Vendor Risk:</span> High probability of Cobalt Blue pigment shortage from primary APAC supplier by mid-September.
+                            </p>
+</div>
+<button class="w-full py-2 px-4 rounded-lg bg-white border border-brand-purple/20 text-brand-purple text-xs font-semibold hover:bg-brand-purple hover:text-white transition-all">
+                            Review Recommended Actions
+                        </button>
+</div>
+</div>
+<div class="glass-panel rounded-xl border border-white flex flex-col overflow-hidden">
+<div class="p-5 border-b border-slate-100 bg-white flex justify-between items-center">
+<h3 class="text-sm font-header font-semibold text-text-dark">Operational Alerts</h3>
+<button class="text-[10px] text-brand-purple hover:underline font-bold">CLEAR ALL</button>
+</div>
+<div class="p-4 space-y-3 max-h-[400px] overflow-y-auto custom-scrollbar">
+<div class="p-3 rounded-lg bg-white border border-slate-100 border-l-4 border-l-brand-crimson shadow-sm">
+<h4 class="text-xs font-bold text-text-dark">Shipment Delayed</h4>
+<p class="text-[10px] text-slate-500 mt-0.5">SKU-892 stuck at customs (48h).</p>
+<span class="text-[8px] text-slate-400 mt-1 block">10m ago</span>
+</div>
+<div class="p-3 rounded-lg bg-white border border-slate-100 border-l-4 border-l-brand-yellow shadow-sm">
+<h4 class="text-xs font-bold text-text-dark">Inventory Low</h4>
+<p class="text-[10px] text-slate-500 mt-0.5">Solvent base below safety stock in WH-B.</p>
+<span class="text-[8px] text-slate-400 mt-1 block">2h ago</span>
+</div>
+<div class="p-3 rounded-lg bg-white border border-slate-100 border-l-4 border-l-brand-purple shadow-sm">
+<h4 class="text-xs font-bold text-text-dark">Prediction Updated</h4>
+<p class="text-[10px] text-slate-500 mt-0.5">Model refreshed with Q3 sales data.</p>
+<span class="text-[8px] text-slate-400 mt-1 block">5h ago</span>
+</div>
+<div class="p-3 rounded-lg bg-white border border-slate-100 border-l-4 border-l-brand-purple shadow-sm">
+<h4 class="text-xs font-bold text-text-dark">In Transit</h4>
+<p class="text-[10px] text-slate-500 mt-0.5">Bulk order #9923 departed Mumbai Port.</p>
+<span class="text-[8px] text-slate-400 mt-1 block">1d ago</span>
+</div>
+</div>
+<div class="p-5 border-t border-slate-100 bg-slate-50/50">
+<div class="flex justify-between items-center text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+<span>System Status</span>
+<span class="text-emerald-500">Live</span>
+</div>
+<div class="space-y-2">
+<div class="h-1 w-full bg-slate-200 rounded-full overflow-hidden">
+<div class="h-full bg-brand-purple w-full"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono">
+<span class="text-slate-400">LATENCY</span>
+<span class="text-brand-yellow">420ms</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
