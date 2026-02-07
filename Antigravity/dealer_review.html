@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dealer Application Review - Modern Colours</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7f13ec",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#191022",
+                        "success-green": "#10b981",
+                        "reject-red": "#ef4444",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl">format_paint</span>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Modern Colours</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-semibold text-primary" href="#">Dealers</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Inventory</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary w-64" placeholder="Search application ID..." type="text"/>
+</div>
+<button class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AD</div>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-6 py-8">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+<a class="hover:text-primary" href="#">Admin Central</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<a class="hover:text-primary" href="#">Dealer Onboarding</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-slate-900 dark:text-white font-medium">Review Application</span>
+</div>
+<!-- Page Header & Main Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex gap-5">
+<div class="w-20 h-20 bg-primary/10 rounded-xl flex items-center justify-center text-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional business logo for a paint shop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHihgLoJfUFu1gapZAZ5Sg80zGAqp5NyFAJwHgDrTDqiOxTNJalXbuvHVFJM_-4cmSpcvAHGx_Nv9Ldk1sKjh6B4DESkvmz4u98aAH1m2NaswFGYA2TIj9TkO8XJ8iMavqHH4JCSyHgT6jkQYZAokFgPritafnv_72IylwVN8XZEC6isid1Hhj7Xpng1C8ILuE1i7fyfgya0n3eKX-MYMjVkFBAbXdhjoh8USGgLCOmH0SQw6kAAL5VnzyUzW4RClBu4fbwfMfm60"/>
+</div>
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-1">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Aravind Paints &amp; Decor</h2>
+<span class="px-3 py-1 bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 text-xs font-bold rounded-full uppercase tracking-wider">Under Review</span>
+</div>
+<p class="text-slate-500 text-sm flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">fingerprint</span> DEALER-2023-0891</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">calendar_today</span> Applied: Oct 24, 2023</span>
+</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-6 py-2.5 bg-white dark:bg-slate-800 border border-reject-red text-reject-red hover:bg-reject-red hover:text-white transition-all font-bold rounded-lg text-sm">
+<span class="material-symbols-outlined text-lg">flag</span>
+                    Reject / Flag
+                </button>
+<button class="flex items-center gap-2 px-8 py-2.5 bg-success-green text-white hover:bg-emerald-600 transition-all font-bold rounded-lg text-sm shadow-lg shadow-emerald-500/20">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+                    Approve Dealer
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Business Info -->
+<div class="lg:col-span-2 space-y-6">
+<!-- Section: Business Identity -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<button class="w-full flex items-center justify-between p-5 bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">badge</span>
+<span class="font-bold text-slate-900 dark:text-white">Business Identity</span>
+</div>
+<span class="material-symbols-outlined text-slate-400">expand_less</span>
+</button>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+<div>
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Legal Name</p>
+<p class="text-slate-900 dark:text-slate-100 font-medium">Aravind Paints &amp; Decor Pvt Ltd</p>
+</div>
+<div>
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">GSTIN Number</p>
+<p class="text-slate-900 dark:text-slate-100 font-medium">29AAAAA0000A1Z5</p>
+</div>
+<div>
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Permanent Account Number (PAN)</p>
+<p class="text-slate-900 dark:text-slate-100 font-medium">ABCDE1234F</p>
+</div>
+<div>
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Business Type</p>
+<p class="text-slate-900 dark:text-slate-100 font-medium">Proprietorship</p>
+</div>
+</div>
+</div>
+<!-- Section: Address Details -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<button class="w-full flex items-center justify-between p-5 bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="font-bold text-slate-900 dark:text-white">Address Details</span>
+</div>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+<div class="p-6">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="flex-1">
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Registered Office</p>
+<p class="text-slate-900 dark:text-slate-100 text-sm leading-relaxed">
+                                    No. 42, 1st Main Road, Industrial Estate,<br/>
+                                    Rajajinagar, Bengaluru, Karnataka 560010
+                                </p>
+</div>
+<div class="w-full md:w-48 h-32 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 relative">
+<img class="w-full h-full object-cover" data-alt="Map view showing the dealer location in Bengaluru" data-location="Bengaluru" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh2YO2oEk3u544Z-5045L0CcNINBPs0iuNIi9lwTmOjoGx4mwjBacnZumTCghqSfjYriGik-0HLKPI5W7CfGLmAWBiMRal7-uQNc8NyrP3EcmIQuujy5D4Ba8E1QvBrRC91WsfMs2A1i4GITFwN9aXmHZNfqctiPe1YAVYSm9QSvUXwrVg3u7Y58U9yKMzbaQqbQBtu9RhOMzSDKsIVuGh9VO48PSB7iaxYINngXCIe2j3ZYl9iBPaUFLaexqGKKo5Vc9_p0JfvBg"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/10">
+<span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Banking Information -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<button class="w-full flex items-center justify-between p-5 bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<span class="font-bold text-slate-900 dark:text-white">Banking Information</span>
+</div>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+<p class="text-xs font-semibold text-slate-400 mb-1">Primary Account Number</p>
+<p class="font-mono text-lg font-bold text-slate-900 dark:text-white">**** **** 9812</p>
+<p class="text-sm text-slate-500 mt-2">HDFC Bank - Bengaluru Main Branch</p>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+<p class="text-xs font-semibold text-slate-400 mb-1">IFSC Code</p>
+<p class="font-mono text-lg font-bold text-slate-900 dark:text-white">HDFC0001234</p>
+<p class="text-sm text-slate-500 mt-2">Verified via Penny Drop check</p>
+</div>
+</div>
+</div>
+<!-- Credit Assessment Card (Full width at bottom of main column) -->
+<div class="bg-primary/5 dark:bg-primary/10 rounded-xl border-2 border-primary/20 p-6">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-2xl">payments</span>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Credit Assessment</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Approved Credit Limit (INR)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-400">₹</span>
+<input class="w-full pl-8 pr-4 py-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary font-bold text-lg" type="number" value="500000"/>
+</div>
+<p class="text-xs text-slate-500 italic">Recommended limit based on GST filing: ₹4,50,000</p>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Payment Terms</label>
+<select class="w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary font-medium">
+<option>Net 30 Days</option>
+<option selected="">Net 45 Days</option>
+<option>Net 60 Days</option>
+<option>Cash on Delivery</option>
+</select>
+<p class="text-xs text-slate-500 italic">Default for new dealers is Net 30 Days</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Documents -->
+<div class="space-y-6">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 h-full flex flex-col">
+<div class="p-5 border-b border-slate-200 dark:border-slate-800">
+<h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">description</span>
+                            Document Verification
+                        </h3>
+</div>
+<div class="p-5 space-y-4 flex-grow overflow-y-auto no-scrollbar">
+<!-- Document Card 1: GST -->
+<div class="p-4 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 flex items-center justify-center rounded">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">GST Certificate</p>
+<p class="text-xs text-slate-500">Uploaded 3 days ago</p>
+</div>
+</div>
+<a class="text-primary hover:underline text-xs font-bold" href="#">VIEW</a>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-slate-200 dark:border-slate-700">
+<span class="text-xs font-semibold text-slate-500">Status</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded text-[10px] font-bold text-slate-400 hover:border-reject-red hover:text-reject-red">REJECT</button>
+<button class="px-3 py-1 bg-success-green text-white rounded text-[10px] font-bold">VERIFIED</button>
+</div>
+</div>
+</div>
+<!-- Document Card 2: PAN -->
+<div class="p-4 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 flex items-center justify-center rounded">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">PAN Card</p>
+<p class="text-xs text-slate-500">Uploaded 3 days ago</p>
+</div>
+</div>
+<a class="text-primary hover:underline text-xs font-bold" href="#">VIEW</a>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-slate-200 dark:border-slate-700">
+<span class="text-xs font-semibold text-slate-500">Status</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded text-[10px] font-bold text-slate-400 hover:border-reject-red hover:text-reject-red transition-colors">REJECT</button>
+<button class="px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded text-[10px] font-bold text-slate-400 hover:border-success-green hover:text-success-green transition-colors">VERIFY</button>
+</div>
+</div>
+</div>
+<!-- Document Card 3: Trade License -->
+<div class="p-4 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 flex items-center justify-center rounded">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">Trade License</p>
+<p class="text-xs text-slate-500">Uploaded 2 days ago</p>
+</div>
+</div>
+<a class="text-primary hover:underline text-xs font-bold" href="#">VIEW</a>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-slate-200 dark:border-slate-700">
+<span class="text-xs font-semibold text-slate-500">Status</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded text-[10px] font-bold text-slate-400">REJECT</button>
+<button class="px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded text-[10px] font-bold text-slate-400">VERIFY</button>
+</div>
+</div>
+</div>
+<div class="mt-4 p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-dashed border-slate-300 dark:border-slate-700">
+<p class="text-xs font-bold text-slate-500 mb-2 uppercase">Verification Progress</p>
+<div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-1/3 rounded-full"></div>
+</div>
+<p class="text-[10px] text-slate-500 mt-2">1 of 3 documents verified</p>
+</div>
+</div>
+<div class="p-5 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800">
+<label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-wide">Reviewer Notes</label>
+<textarea class="w-full text-sm rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary placeholder:text-slate-400" placeholder="Add internal notes about this dealer..." rows="3"></textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-12 py-8 border-t border-slate-200 dark:border-slate-800">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-slate-500">© 2023 Modern Colours Pvt. Ltd. Admin Portal</p>
+<div class="flex items-center gap-6">
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Compliance Policy</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Audit Log</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Support</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>
