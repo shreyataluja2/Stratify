@@ -1,0 +1,6 @@
+
+import BuyerLayout from "@/components/layout/BuyerLayout";
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+    return <BuyerLayout>{children}</BuyerLayout>;
+}
