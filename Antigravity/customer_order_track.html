@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Track Order - Modern Colours Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1313",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#1a0d0d",
+                        "sidebar-bg": "#ffffff",
+                        "card-border": "#e5e7eb"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.75rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .fill-icon {
+                font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+        }
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(236, 19, 19, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(236, 19, 19, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(236, 19, 19, 0); }
+        }
+        .animate-pulse-custom {
+            animation: pulse-red 2s infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#181111] dark:text-white min-h-screen flex">
+<aside class="fixed left-0 top-0 h-full w-64 bg-sidebar-bg dark:bg-[#2d1a1a] border-r border-gray-200 dark:border-gray-800 flex flex-col z-20">
+<div class="p-8">
+<h1 class="text-primary text-2xl font-black italic tracking-tighter">MODERN<br/>COLOURS</h1>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-semibold">Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-semibold">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary/5 text-primary rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined fill-icon">package_2</span>
+<span class="font-semibold">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">local_offer</span>
+<span class="font-semibold">Offers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-semibold">Support</span>
+</a>
+</nav>
+<div class="p-4 border-t border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-3 p-2">
+<div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Alex Johnson</p>
+<p class="text-xs text-gray-500 truncate">Premium Member</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="ml-64 flex-1 min-h-screen flex flex-col">
+<header class="sticky top-0 z-10 bg-white/80 dark:bg-[#2d1a1a]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 px-8 py-4 flex items-center gap-4">
+<button class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300">arrow_back</span>
+</button>
+<h2 class="text-xl font-bold">Track Order</h2>
+</header>
+<div class="max-w-4xl w-full mx-auto px-8 py-8 flex flex-col gap-6">
+<div class="bg-white dark:bg-[#2d1a1a] rounded-2xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm flex items-center justify-between">
+<div class="space-y-1">
+<p class="text-[#896161] dark:text-gray-400 text-xs font-bold uppercase tracking-widest">Order Details</p>
+<h3 class="text-3xl font-black text-[#181111] dark:text-white">#MC-88219</h3>
+<div class="flex items-center gap-4 mt-2">
+<span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-bold rounded-full">In Transit</span>
+<p class="text-primary text-xl font-bold">Total $145.00</p>
+</div>
+</div>
+<div class="w-32 h-32 rounded-xl overflow-hidden shadow-inner hidden md:block">
+<img alt="Order Items" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeK_v-aSTaszs1BEnrWyu1z2iu7OLS2mOuHY6e82XAdhMAKsNMvbL57vIbX7kNTEwVCYgI9QpXYdM8E5F1lkyJjey5as4NL3J3NQXxvLM-yEeR9OrHJSD2tSIwI4g_kPF8mrBpeZOCIgLcv2lISjyc-JLqZzIrJqV4-slZ6mK4xxsatqpinOeflvbquPznW9eRiOOIhOImPoIe0vN4olNoskhY_NcQyojTBpD4ritGWqxDN2MdGW_leAh2rD9OR7AZhQJIye5I0yIq"/>
+</div>
+</div>
+<div class="bg-white dark:bg-[#2d1a1a] rounded-2xl border border-gray-100 dark:border-gray-800 p-8">
+<h4 class="text-lg font-bold mb-10">Delivery Progress</h4>
+<div class="relative ml-4">
+<div class="flex gap-6 mb-12">
+<div class="relative flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white z-10">
+<span class="material-symbols-outlined text-sm fill-icon">check</span>
+</div>
+<div class="absolute top-8 w-0.5 h-12 bg-primary"></div>
+</div>
+<div>
+<p class="font-bold text-lg">Order Placed</p>
+<p class="text-gray-500 text-sm">Oct 12, 2023 • 09:00 AM</p>
+</div>
+</div>
+<div class="flex gap-6 mb-12">
+<div class="relative flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white z-10">
+<span class="material-symbols-outlined text-sm fill-icon">check</span>
+</div>
+<div class="absolute top-8 w-0.5 h-12 bg-primary"></div>
+</div>
+<div>
+<p class="font-bold text-lg">Confirmed</p>
+<p class="text-gray-500 text-sm">Oct 12, 2023 • 10:30 AM</p>
+</div>
+</div>
+<div class="flex gap-6 mb-12">
+<div class="relative flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white z-10">
+<span class="material-symbols-outlined text-sm fill-icon">check</span>
+</div>
+<div class="absolute top-8 w-0.5 h-12 bg-primary"></div>
+</div>
+<div>
+<p class="font-bold text-lg">Packed</p>
+<p class="text-gray-500 text-sm">Oct 13, 2023 • 08:15 AM</p>
+</div>
+</div>
+<div class="flex gap-6 mb-12">
+<div class="relative flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white z-10 animate-pulse-custom">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+</div>
+<div class="absolute top-8 w-0.5 h-12 bg-gray-100 dark:bg-gray-800"></div>
+</div>
+<div>
+<div class="flex items-center gap-3">
+<p class="font-bold text-lg">Out for Delivery</p>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded-full">Active</span>
+</div>
+<p class="text-gray-500 text-sm mt-1">Expected by 2:00 PM today</p>
+<p class="text-primary font-bold mt-1">Courier is 2 stops away</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="relative flex flex-col items-center">
+<div class="w-8 h-8 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark flex items-center justify-center text-gray-300 z-10">
+<span class="material-symbols-outlined text-sm">home</span>
+</div>
+</div>
+<div>
+<p class="font-bold text-lg text-gray-400">Delivered</p>
+<p class="text-gray-400 text-sm">Pending</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 mt-4">
+<button class="flex-1 h-14 bg-primary hover:bg-red-700 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">call</span>
+<span>Call Dealer</span>
+</button>
+<button class="flex-1 h-14 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-[#181111] dark:text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined">help_outline</span>
+<span>Get Help</span>
+</button>
+</div>
+</div>
+<footer class="mt-auto p-8 text-center">
+<p class="text-gray-400 text-sm">Need more details about your delivery? <a class="text-primary font-bold hover:underline" href="#">Chat with us</a></p>
+</footer>
+</main>
+
+</body></html>
