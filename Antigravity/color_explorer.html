@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Color Explorer Web Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1313",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .masonry-grid {
+            column-count: 2;
+            column-gap: 20px;
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 4;
+            }
+        }
+        @media (min-width: 1536px) {
+            .masonry-grid {
+                column-count: 5;
+            }
+        }
+        .masonry-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#181111] dark:text-white min-h-screen overflow-x-hidden">
+<div class="flex h-screen overflow-hidden">
+<aside class="hidden lg:flex w-64 flex-col bg-white dark:bg-[#2a1515] border-r border-black/5 dark:border-white/5 h-full z-50">
+<div class="p-8">
+<h1 class="text-xl font-bold tracking-tight text-primary">MODERN COLOURS</h1>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<button class="flex items-center gap-4 w-full p-4 rounded-xl bg-primary/10 text-primary font-bold">
+<span class="material-symbols-outlined">explore</span>
+<span>Explore</span>
+</button>
+<button class="flex items-center gap-4 w-full p-4 rounded-xl text-[#896161] dark:text-[#a08080] hover:bg-black/5 dark:hover:bg-white/5 transition-colors font-medium">
+<span class="material-symbols-outlined">palette</span>
+<span>My Colors</span>
+</button>
+<button class="flex items-center gap-4 w-full p-4 rounded-xl text-[#896161] dark:text-[#a08080] hover:bg-black/5 dark:hover:bg-white/5 transition-colors font-medium">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>Shop</span>
+</button>
+<button class="flex items-center gap-4 w-full p-4 rounded-xl text-[#896161] dark:text-[#a08080] hover:bg-black/5 dark:hover:bg-white/5 transition-colors font-medium">
+<span class="material-symbols-outlined">person</span>
+<span>Profile</span>
+</button>
+</nav>
+<div class="p-6 border-t border-black/5 dark:border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">JD</div>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">John Doe</p>
+<p class="text-xs text-[#896161] dark:text-[#a08080]">Premium Member</p>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col h-full overflow-y-auto">
+<header class="flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 lg:p-6 sticky top-0 z-40">
+<div class="lg:hidden text-[#181111] dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<div class="hidden lg:block w-12"></div>
+<h2 class="text-[#181111] dark:text-white text-xl lg:text-2xl font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Color Explorer</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-full h-10 w-10 lg:h-12 lg:w-12 bg-white dark:bg-[#331a1a] text-[#181111] dark:text-white shadow-sm ring-1 ring-black/5">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto w-full px-4 lg:px-8 pb-12">
+<div class="py-6 lg:py-8 max-w-3xl mx-auto">
+<div class="flex gap-3 w-full">
+<div class="flex flex-col flex-1 h-14">
+<div class="flex w-full flex-1 items-stretch rounded-2xl h-full shadow-sm ring-1 ring-black/5">
+<div class="text-[#896161] dark:text-[#a08080] flex border-none bg-white dark:bg-[#331a1a] items-center justify-center pl-5 rounded-l-2xl">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-white dark:bg-[#331a1a] h-full placeholder:text-[#896161] dark:placeholder:text-[#a08080] px-4 rounded-r-2xl focus:ring-0 text-lg font-normal" placeholder="Search color name" type="text"/>
+</div>
+</div>
+<button class="flex items-center justify-center rounded-2xl h-14 w-14 lg:w-auto lg:px-6 bg-primary text-white shrink-0 shadow-lg hover:bg-primary/90 transition-colors gap-3">
+<span class="material-symbols-outlined">camera_enhance</span>
+<span class="hidden lg:inline font-bold">Visual AI</span>
+</button>
+</div>
+<p class="text-sm text-[#896161] dark:text-[#a08080] mt-3 px-1 text-center lg:text-left">Try Visual AI: Upload a photo to match colors</p>
+</div>
+<div class="flex gap-3 py-6 overflow-x-auto no-scrollbar justify-center lg:justify-start">
+<button class="flex h-11 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-8 text-white shadow-md shadow-primary/20">
+<p class="text-sm font-bold">Red</p>
+</button>
+<button class="flex h-11 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#331a1a] px-8 text-[#181111] dark:text-white border border-black/5 dark:border-white/5 hover:border-primary/50 transition-colors">
+<p class="text-sm font-medium">Blue</p>
+</button>
+<button class="flex h-11 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#331a1a] px-8 text-[#181111] dark:text-white border border-black/5 dark:border-white/5 hover:border-primary/50 transition-colors">
+<p class="text-sm font-medium">Green</p>
+</button>
+<button class="flex h-11 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#331a1a] px-8 text-[#181111] dark:text-white border border-black/5 dark:border-white/5 hover:border-primary/50 transition-colors">
+<p class="text-sm font-medium">Yellow</p>
+</button>
+<button class="flex h-11 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#331a1a] px-8 text-[#181111] dark:text-white border border-black/5 dark:border-white/5 hover:border-primary/50 transition-colors">
+<p class="text-sm font-medium">Neutral</p>
+</button>
+<button class="flex h-11 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#331a1a] px-8 text-[#181111] dark:text-white border border-black/5 dark:border-white/5 hover:border-primary/50 transition-colors">
+<p class="text-sm font-medium">Pastel</p>
+</button>
+</div>
+<div class="masonry-grid mt-4">
+<div class="masonry-item">
+<div class="bg-white dark:bg-[#331a1a] rounded-2xl overflow-hidden shadow-sm border border-black/5 dark:border-white/5 group">
+<div class="aspect-[3/5] relative bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGNJbrmnpx-n0bPOxZymvlyoHTyl8H238VFLlxKeoj_dKDUaXra5BnKBjqrwoX0fEZxZDvDQOZYuLmC-Uf1d5V_dFNTcFaA56LBeF5eIryjgI1UaU9ZqklVd3eZXrx0knZBe_M2gJrVrNGeIrqTQjDid0miMrx2GcIb6qIxVLOF1MbEvpv0I3-RYDNiLgGkIBE-VO_jMUv6ooYE1laf9bEnbSodPkTKMmWmCZaNdObSJtNcNrOtd5dLKO1OhFzfDOe3VDM9r_Zn19d');">
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-black/40 backdrop-blur-md rounded-full h-10 w-10 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-[#181111] dark:text-white text-lg truncate">Sunset Orange</h3>
+<div class="flex justify-between items-end mt-2">
+<p class="text-sm text-[#896161] dark:text-[#a08080]">SC-402</p>
+<p class="text-lg font-bold text-primary">$45.00</p>
+</div>
+</div>
+</div>
+</div>
+<div class="masonry-item">
+<div class="bg-white dark:bg-[#331a1a] rounded-2xl overflow-hidden shadow-sm border border-black/5 dark:border-white/5 group">
+<div class="aspect-square relative bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvTYvamPVtO8b54-rEavDSHaRWqpa2sAoeKCwESqm9fnZbk7zy6_S8LsW1PcOcUTr7ipuTlpg81zQFzexb4-YU1AxYIq3BYtp9FgGZXGE525S4jB65bgCZLLtzTCGsSbthW16N78XrrcNGEHpu4LZd1pl4vAbiAbQGUqUM--ovi8a3N4GDHSVIkTtgB9v9aYuTMZumVrBs5lk-54MihVFSN3jAds4eZ9mJKcoGYg1hKT9dTaeYf1eZKliNH7oXODEiAxqaUgJLkOeH');">
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-black/40 backdrop-blur-md rounded-full h-10 w-10 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[#181111] dark:text-white text-xl">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-[#181111] dark:text-white text-lg truncate">Crimson Tide</h3>
+<div class="flex justify-between items-end mt-2">
+<p class="text-sm text-[#896161] dark:text-[#a08080]">RD-12</p>
+<p class="text-lg font-bold text-primary">$42.50</p>
+</div>
+</div>
+</div>
+</div>
+<div class="masonry-item">
+<div class="bg-white dark:bg-[#331a1a] rounded-2xl overflow-hidden shadow-sm border border-black/5 dark:border-white/5 group">
+<div class="aspect-[3/4] relative bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuD17cjI42bZlmYi48rhbiVamyQKhQk5etdnzWc1lbCSLt77aFStQP86deOP4QSKdEYixAcfumTitELp-AFG94cVrpcs2AUmFpLtOf5tXfZMXl81EfbqOH1CVPARTZGU4dk9lr06GrdDfz9ZwX_KyQE2zxt5lpCu3AFmtJkjoas8Go4xQ1rvMp4FBaWRyaRyBK9mBlqU7cQW_Ftg3fIasKNRVrFdwjGq7dE4Iniiq6WFGm0dotn5Kqxri3LSFNnY9_u9ubaFBCoE4doZ');">
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-black/40 backdrop-blur-md rounded-full h-10 w-10 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[#181111] dark:text-white text-xl">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-[#181111] dark:text-white text-lg truncate">Rust Whisper</h3>
+<div class="flex justify-between items-end mt-2">
+<p class="text-sm text-[#896161] dark:text-[#a08080]">RW-99</p>
+<p class="text-lg font-bold text-primary">$38.00</p>
+</div>
+</div>
+</div>
+</div>
+<div class="masonry-item">
+<div class="bg-white dark:bg-[#331a1a] rounded-2xl overflow-hidden shadow-sm border border-black/5 dark:border-white/5 group">
+<div class="aspect-[4/6] relative bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDsSH1kTaC5tlL-Am3DD4j5VxmRidnbZPmRlLJplE08rfZuErZnQwWMd5EVn5kN4UnHa46kRFeI4l7zTMLCwV902eFkmIMT0bz52_wMGG9ReQCBMU_0VqtcLMxVwim63HJKfboejoT1z5qpeA2m9aVv5s2MsyVVbGAVVscJ4RKbZGBWPAaki9d6tHNDH2VpcsDonSMUncPaeZWyL4QOWWJkN160Q6pcnvMwy4RsOCXCqHs3nou35yi4xag7ZKPu95PNSup4Ul4bE8eF');">
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-black/40 backdrop-blur-md rounded-full h-10 w-10 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[#181111] dark:text-white text-xl">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-[#181111] dark:text-white text-lg truncate">Velvet Rose</h3>
+<div class="flex justify-between items-end mt-2">
+<p class="text-sm text-[#896161] dark:text-[#a08080]">VR-55</p>
+<p class="text-lg font-bold text-primary">$51.00</p>
+</div>
+</div>
+</div>
+</div>
+<div class="masonry-item">
+<div class="bg-white dark:bg-[#331a1a] rounded-2xl overflow-hidden shadow-sm border border-black/5 dark:border-white/5 group">
+<div class="aspect-square relative bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBydytkfhJmYMJki-lH8cHBuIpyqR1GRP50375TeSfLnVfGadhWBe-NIeri5iapwRGd8A6gXsKCYB9MxlHo447JapYToNAGFtwz7oyl7kOWXafSMWADGNOXw_pwQGMqrBZoVySb-97Pw6whUYjmuh7TC9vpelLYvR7s2EUgTW5DTsx0YqUc9cm1WNbci5GHSuJ49jHaNZ7jk7jG3mQYT26oW151v85neB4aGt4JCtjL7c2NfPR2yHw2rDUDUIwpVVUIrt07ZzS2hjfa');">
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-black/40 backdrop-blur-md rounded-full h-10 w-10 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-[#181111] dark:text-white text-lg truncate">Classic Brick</h3>
+<div class="flex justify-between items-end mt-2">
+<p class="text-sm text-[#896161] dark:text-[#a08080]">CB-102</p>
+<p class="text-lg font-bold text-primary">$35.00</p>
+</div>
+</div>
+</div>
+</div>
+<div class="masonry-item">
+<div class="bg-white dark:bg-[#331a1a] rounded-2xl overflow-hidden shadow-sm border border-black/5 dark:border-white/5 group">
+<div class="aspect-[3/4] relative bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdb19ZroFSLcS-IEMn-6yXbfL600d4hzkBEk4pHxrtoj4n3cfj9tDrfhRJVKGkEc69vwsGObCHLCuJUackxf0OFFxItr2oiCYInUC21Ih8FeM7zNI8znM1sRX0OqZYdtXbTnm9yeWtfWg0OeTLrN7c3R7rHr266k9AcG3JVOLVIZ3oIVdFve_PhYfVPAZ4xxQPPplTIvlGKnRji5c-6Qk1BouwSl2LD3-jd9yKis85dDJzhdigbRSMCKageBOs6LuSGXHcXXIfpS8R');">
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-black/40 backdrop-blur-md rounded-full h-10 w-10 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[#181111] dark:text-white text-xl">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-[#181111] dark:text-white text-lg truncate">Autumn Ember</h3>
+<div class="flex justify-between items-end mt-2">
+<p class="text-sm text-[#896161] dark:text-[#a08080]">AE-78</p>
+<p class="text-lg font-bold text-primary">$44.00</p>
+</div>
+</div>
+</div>
+</div>
+<div class="masonry-item">
+<div class="bg-white dark:bg-[#331a1a] rounded-2xl overflow-hidden shadow-sm border border-black/5 dark:border-white/5 group">
+<div class="aspect-square relative bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvTYvamPVtO8b54-rEavDSHaRWqpa2sAoeKCwESqm9fnZbk7zy6_S8LsW1PcOcUTr7ipuTlpg81zQFzexb4-YU1AxYIq3BYtp9FgGZXGE525S4jB65bgCZLLtzTCGsSbthW16N78XrrcNGEHpu4LZd1pl4vAbiAbQGUqUM--ovi8a3N4GDHSVIkTtgB9v9aYuTMZumVrBs5lk-54MihVFSN3jAds4eZ9mJKcoGYg1hKT9dTaeYf1eZKliNH7oXODEiAxqaUgJLkOeH');">
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-black/40 backdrop-blur-md rounded-full h-10 w-10 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[#181111] dark:text-white text-xl">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-[#181111] dark:text-white text-lg truncate">Cherry Pop</h3>
+<div class="flex justify-between items-end mt-2">
+<p class="text-sm text-[#896161] dark:text-[#a08080]">CP-22</p>
+<p class="text-lg font-bold text-primary">$41.00</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-[#221010]/90 backdrop-blur-lg border-t border-black/5 dark:border-white/5 p-2 flex justify-around items-center z-50">
+<button class="flex flex-col items-center p-2 text-primary">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-bold mt-1">Explore</span>
+</button>
+<button class="flex flex-col items-center p-2 text-[#896161] dark:text-[#a08080]">
+<span class="material-symbols-outlined">palette</span>
+<span class="text-[10px] font-medium mt-1">My Colors</span>
+</button>
+<button class="flex flex-col items-center p-2 text-[#896161] dark:text-[#a08080]">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="text-[10px] font-medium mt-1">Shop</span>
+</button>
+<button class="flex flex-col items-center p-2 text-[#896161] dark:text-[#a08080]">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium mt-1">Profile</span>
+</button>
+</nav>
+</div>
+
+</body></html>
