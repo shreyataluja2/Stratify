@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Catalog Web Dashboard - Modern Colours</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1313",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#1a0d0d",
+                        "sidebar-dark": "#120808",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background-light dark:bg-background-dark font-display text-[#181111] dark:text-white;
+            }
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex">
+<aside class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-sidebar-dark border-r border-gray-200 dark:border-white/10 hidden lg:flex flex-col z-50">
+<div class="p-6">
+<h2 class="text-primary font-bold text-2xl tracking-tighter">MODERN COLOURS</h2>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-semibold">Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary text-white rounded-xl shadow-lg shadow-primary/20 transition-all" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-semibold">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-semibold">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">local_offer</span>
+<span class="font-semibold">Offers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span class="font-semibold">Support</span>
+</a>
+</nav>
+<div class="p-4 border-t border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-3 px-4 py-3 text-gray-500">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-medium">Logout</span>
+</div>
+</div>
+</aside>
+<div class="flex-1 lg:pl-64 flex flex-col min-h-screen">
+<header class="sticky top-0 z-40 bg-white dark:bg-background-dark border-b border-gray-200 dark:border-white/10 h-16 flex items-center px-8 justify-between">
+<h1 class="text-xl font-bold leading-tight tracking-tight">Product Catalog</h1>
+<div class="flex items-center gap-6">
+<button class="relative p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="flex items-center gap-2 bg-gray-100 dark:bg-white/5 px-4 py-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[#181111] dark:text-white">shopping_cart</span>
+<span class="text-sm font-bold">2 Items</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-gray-200 dark:bg-white/10 flex items-center justify-center overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQr5I_O5Zf7Y3IQCJfO_tQV5bHEdYwSZQ5L_FD8nnQSLV-vRcwz5_V2XwKZrS44NbUnCA_kzNkAoqO2C7G4M5jqeoWQL2FE9yib5vTuOEBMz4b5Na7b-e5mZCTlShonqhyE5dsk2ZdsuwwNTtgPQh6O760ZKtOPD32-Oup4-NfrBRmy_F5SkaTCB4ZWupNJ71W2_DhT6BCYFIXrMy5ely7qS8N__TjolN6iK8NwVAQxci7LDaBshJBZpcY2jrLL1hQh6aPyeIyAFRg"/>
+</div>
+</div>
+</header>
+<main class="p-8">
+<div class="max-w-7xl mx-auto space-y-6">
+<div class="bg-white dark:bg-background-dark/50 p-4 rounded-xl border border-gray-100 dark:border-white/5 shadow-sm">
+<div class="flex gap-4">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="w-full h-12 pl-12 pr-4 bg-gray-100 dark:bg-white/5 border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-base placeholder:text-gray-500 dark:placeholder:text-white/40" placeholder="Search paints, SKUs, or finishes"/>
+</div>
+<button class="h-12 px-6 flex items-center gap-2 bg-gray-100 dark:bg-white/5 rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">tune</span>
+<span>Filter</span>
+</button>
+</div>
+</div>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<button class="h-10 shrink-0 px-6 rounded-full bg-primary text-white font-semibold text-sm shadow-md shadow-primary/20">All</button>
+<button class="h-10 shrink-0 px-6 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[#181111] dark:text-white font-medium text-sm hover:border-primary transition-colors">Interior</button>
+<button class="h-10 shrink-0 px-6 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[#181111] dark:text-white font-medium text-sm hover:border-primary transition-colors">Exterior</button>
+<button class="h-10 shrink-0 px-6 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[#181111] dark:text-white font-medium text-sm hover:border-primary transition-colors">Wood</button>
+<button class="h-10 shrink-0 px-6 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[#181111] dark:text-white font-medium text-sm hover:border-primary transition-colors">Metal</button>
+<button class="h-10 shrink-0 px-6 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[#181111] dark:text-white font-medium text-sm hover:border-primary transition-colors">Primer</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 pb-12">
+<div class="flex flex-col bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-gray-100 dark:border-white/5 hover:shadow-xl transition-all group">
+<div class="relative w-full aspect-video bg-center bg-no-repeat bg-cover" data-alt="Modern premium white paint bucket in a luxury interior room" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCdRZgPoT_i7f-q9voEUsYP68zFm7G0YSUj_6-E9dA6xY9wA3xHNXS4zJ5y5nQfTBn2ABT-fzLjknnNLlinX7ZCi1I8fSJKGxT_A9GRvUAEr9O9SRh1JbVQOYAy9gzslf_5pErERc_8RUvpP_JlElzCOa-HOILiVGEOIuiUS0ZGczzNgYWlhJkYXTdHO3FwROEeXCJnJObKbwRE2zQ13T6yBxg5Q2PVtlGZ6QqRRDqtyGnjAw_vmzxMZWQp0bCXppcDcVBfi66odpc8");'>
+<div class="absolute top-4 left-4 bg-green-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm">
+                                In Stock
+                            </div>
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-black/50 p-2 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-[22px]">favorite</span>
+</button>
+</div>
+<div class="p-6 flex flex-col gap-3">
+<div>
+<p class="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-[0.1em]">Interior Emulsion</p>
+<h3 class="text-[#181111] dark:text-white text-xl font-bold leading-tight mt-1">Luxury Silk Emulsion</h3>
+</div>
+<div class="flex flex-col text-sm text-gray-600 dark:text-gray-300">
+<p>SKU: MC-7821 • <span class="font-medium text-[#181111] dark:text-white">Finish: Matte</span></p>
+</div>
+<div class="flex items-center gap-3">
+<p class="text-2xl font-bold text-[#181111] dark:text-white">₹4,250</p>
+<p class="text-sm text-gray-400 line-through">₹4,800</p>
+<span class="text-[10px] font-bold text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-0.5 rounded">12% OFF</span>
+</div>
+<div class="flex items-center justify-between gap-4 mt-4 pt-4 border-t border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-3 shrink-0 bg-gray-50 dark:bg-white/5 rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-white/10 shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<input class="w-8 text-center bg-transparent font-bold text-base focus:ring-0 border-none p-0" type="number" value="1"/>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-white/10 shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<button class="flex-1 bg-primary hover:bg-red-700 text-white h-11 rounded-lg font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 transition-all">
+<span class="material-symbols-outlined text-[18px]">shopping_basket</span>
+<span>Add to Order</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-gray-100 dark:border-white/5 hover:shadow-xl transition-all group">
+<div class="relative w-full aspect-video bg-center bg-no-repeat bg-cover" data-alt="Durable exterior paint being applied to a brick wall" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJZ6Cf-iLe4iN2fHDTpDePsX_JPBOrD229OJJ-QWMhWLliOf1UfqzH5C3UFy3YmRrfJ1dABkiTAbyaIXG9TXf4tMn7GTTkTSW-mC0cQcLfDwjFReDlX2ekKlDxduCgUW-7SSDDJx14TxA_Lqmu6DA7tEm2zRezfUJUUTZ7ISAYg7j2oSRq9Js9sGcwc_AoHpA2vFwSngqytAER973z7XdoOx2GzZxLNHiNi7n6E986TYLW7p4-T8QGkaakbsvnlxW4wiLrnVMyH1E8");'>
+<div class="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm">
+                                Low Stock
+                            </div>
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-black/50 p-2 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-gray-400 text-[22px]">favorite</span>
+</button>
+</div>
+<div class="p-6 flex flex-col gap-3">
+<div>
+<p class="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-[0.1em]">Weather Guard</p>
+<h3 class="text-[#181111] dark:text-white text-xl font-bold leading-tight mt-1">Shield Max Exterior</h3>
+</div>
+<div class="flex flex-col text-sm text-gray-600 dark:text-gray-300">
+<p>SKU: EX-9920 • <span class="font-medium text-[#181111] dark:text-white">Finish: Satin</span></p>
+</div>
+<div class="flex items-center gap-3">
+<p class="text-2xl font-bold text-[#181111] dark:text-white">₹5,100</p>
+<p class="text-sm text-gray-400 line-through">₹5,900</p>
+<span class="text-[10px] font-bold text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-0.5 rounded">14% OFF</span>
+</div>
+<div class="flex items-center justify-between gap-4 mt-4 pt-4 border-t border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-3 shrink-0 bg-gray-50 dark:bg-white/5 rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-white/10 shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<input class="w-8 text-center bg-transparent font-bold text-base focus:ring-0 border-none p-0" type="number" value="12"/>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-white/10 shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<button class="flex-1 bg-primary hover:bg-red-700 text-white h-11 rounded-lg font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 transition-all">
+<span class="material-symbols-outlined text-[18px]">shopping_basket</span>
+<span>Add to Order</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-gray-100 dark:border-white/5 opacity-70">
+<div class="relative w-full aspect-video bg-center bg-no-repeat bg-cover grayscale" data-alt="Premium wood varnish tin with elegant wood samples" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqH_vqD39GgxJ8zd5sLd0CQtWphJsRAaT6Sh6DKqUQVv-vallKN6r6pNKsX2qYwQ1lS0UVwiIeKMOFXfmun5yj2O7inpfx49fJNTIjrvxvK8yH8Rf2Y84hb53oJ_k2hT0z-X5RE3Zqsw4oBJ8X9wh8C8zRMwF3Syt3MVrKhmQnMS2GgGE0H8v6-U5uiFu2kx8Tl9sPsVQvl3XLqjlFortzosXtfAZ5Pihm_x5eO6vTjzAFJ1rEkJhjVexHBPng-gecOmdqgJGMskkY");'>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="bg-white/90 text-black px-5 py-2 rounded-lg font-bold text-xs tracking-[0.2em] shadow-lg">OUT OF STOCK</span>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-3">
+<div>
+<p class="text-[10px] text-gray-400 uppercase tracking-[0.1em] font-bold">Varnish &amp; Gloss</p>
+<h3 class="text-[#181111] dark:text-white/60 text-xl font-bold leading-tight mt-1">High Gloss Teak Varnish</h3>
+</div>
+<div class="flex flex-col text-sm text-gray-500">
+<p>SKU: WD-2201 • Finish: High Gloss</p>
+</div>
+<div class="flex items-center gap-3">
+<p class="text-2xl font-bold text-[#181111] dark:text-white/60">₹2,850</p>
+</div>
+<div class="flex items-center justify-between gap-4 mt-4 pt-4 border-t border-gray-100 dark:border-white/5">
+<button class="flex-1 border-2 border-gray-200 dark:border-white/10 text-gray-600 dark:text-white/60 h-11 rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+<span>Notify Me When Available</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-gray-100 dark:border-white/5 hover:shadow-xl transition-all group">
+<div class="relative w-full aspect-video bg-center bg-no-repeat bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCdRZgPoT_i7f-q9voEUsYP68zFm7G0YSUj_6-E9dA6xY9wA3xHNXS4zJ5y5nQfTBn2ABT-fzLjknnNLlinX7ZCi1I8fSJKGxT_A9GRvUAEr9O9SRh1JbVQOYAy9gzslf_5pErERc_8RUvpP_JlElzCOa-HOILiVGEOIuiUS0ZGczzNgYWlhJkYXTdHO3FwROEeXCJnJObKbwRE2zQ13T6yBxg5Q2PVtlGZ6QqRRDqtyGnjAw_vmzxMZWQp0bCXppcDcVBfi66odpc8");'>
+<div class="absolute top-4 left-4 bg-green-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">In Stock</div>
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-[22px]">favorite</span>
+</button>
+</div>
+<div class="p-6 flex flex-col gap-3">
+<div>
+<p class="text-[10px] text-gray-500 font-bold uppercase tracking-[0.1em]">Speciality Coating</p>
+<h3 class="text-[#181111] dark:text-white text-xl font-bold leading-tight mt-1">Stucco Finish Plaster</h3>
+</div>
+<div class="flex flex-col text-sm text-gray-600 dark:text-gray-300">
+<p>SKU: SP-1102 • <span class="font-medium text-[#181111] dark:text-white">Finish: Textured</span></p>
+</div>
+<div class="flex items-center gap-3">
+<p class="text-2xl font-bold text-[#181111] dark:text-white">₹6,400</p>
+</div>
+<div class="flex items-center justify-between gap-4 mt-4 pt-4 border-t border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-3 bg-gray-50 dark:bg-white/5 rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-white/10 shadow-sm active:scale-95"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+<input class="w-8 text-center bg-transparent font-bold" type="number" value="1"/>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-white dark:bg-white/10 shadow-sm active:scale-95"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+<button class="flex-1 bg-primary text-white h-11 rounded-lg font-bold text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_basket</span>
+<span>Add to Order</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
