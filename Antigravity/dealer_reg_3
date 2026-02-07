@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dealer Registration - Step 3 | Modern Colours Pvt. Ltd.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#db143c",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211114",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header Section -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-[#2d181c] px-4 md:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4 text-[#1b0e10] dark:text-white">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Modern Colours Pvt. Ltd.</h2>
+</div>
+<div class="flex items-center gap-4">
+<span class="hidden md:block text-sm font-medium opacity-70">Dealer Onboarding Portal</span>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="User profile avatar of a smiling man" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBSutYTERJqOsxyyMM1KwhDON-outypyp7lgyDteQ9u5FiCu70iftT5rH5vxenkHb4hWT7zVr4ro6JD36kgxxbnVkX3cj7luS5chxVvs0hfgQZ-bwbAawmWKLBx5z-Jj1CpWplTharwv_hxRozmSRvXEYjogPHFT0QsRjYCKHIjWjaK_MIAC-cROapYl0SQj4wwkXdI_B9Z9yR1wtyJIAhEblXGXrFi6uk9bpd0zN_tKoqU22HYTkxZ1ovl0TeVziatc3HiGZdjVNY");'></div>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="flex-1 flex flex-col items-center py-8 px-4 md:px-10">
+<div class="w-full max-w-[1100px] flex flex-col gap-6">
+<!-- Progress Stepper -->
+<div class="flex flex-col gap-4 bg-white dark:bg-[#2d181c] p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex gap-6 justify-between items-end">
+<div class="flex flex-col">
+<span class="text-primary text-xs font-bold uppercase tracking-wider mb-1">Registration Process</span>
+<h1 class="text-2xl md:text-3xl font-black leading-tight tracking-tight">Step 3: Address &amp; Location</h1>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold">3 of 6</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Address Details</p>
+</div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full transition-all duration-500" style="width: 50%;"></div>
+</div>
+</div>
+<!-- Address Form Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Column 1: Registered Business Address -->
+<div class="flex flex-col gap-6 bg-white dark:bg-[#2d181c] p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+<span class="material-symbols-outlined text-primary">domain</span>
+<h2 class="text-xl font-bold">Registered Business Address</h2>
+</div>
+<div class="flex flex-col gap-4">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Street Address / Door No.</span>
+<textarea class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm p-3" placeholder="Enter full office address" rows="2"></textarea>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Area / Landmark</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm" placeholder="Nearby landmark or area name" type="text"/>
+</label>
+<div class="grid grid-cols-2 gap-4">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Pin Code</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm" placeholder="6-digit PIN" type="text"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">City</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm" placeholder="Enter City" type="text"/>
+</label>
+</div>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">State</span>
+<select class="form-select w-full rounded-lg border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm">
+<option value="">Select State</option>
+<option value="MH">Maharashtra</option>
+<option value="KA">Karnataka</option>
+<option value="DL">Delhi</option>
+<option value="TN">Tamil Nadu</option>
+</select>
+</label>
+</div>
+</div>
+<!-- Column 2: Warehouse Address -->
+<div class="flex flex-col gap-6 bg-white dark:bg-[#2d181c] p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">warehouse</span>
+<h2 class="text-xl font-bold">Primary Warehouse Address</h2>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-2 p-3 bg-primary/5 dark:bg-primary/10 rounded-lg">
+<input class="rounded text-primary focus:ring-primary border-slate-300" id="same_as" type="checkbox"/>
+<label class="text-xs font-bold text-primary uppercase cursor-pointer" for="same_as">Same as Business Address</label>
+</div>
+<div class="flex flex-col gap-4">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Warehouse Street Address</span>
+<textarea class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm p-3" placeholder="Enter full warehouse address" rows="2"></textarea>
+</label>
+<div class="grid grid-cols-2 gap-4">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Pin Code</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm" placeholder="6-digit PIN" type="text"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">City</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm" placeholder="Enter City" type="text"/>
+</label>
+</div>
+<!-- Map Integration Widget -->
+<div class="mt-2">
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Pinpoint Delivery Location</span>
+<button class="text-primary text-xs font-bold hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">my_location</span>
+                                            Use Current GPS
+                                        </button>
+</div>
+<div class="relative w-full h-40 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center opacity-80" data-alt="Simplified map view of city grid with a marker" data-location="Mumbai" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0YuJioXUrB9X8ZB90iKvgrzl0XBqx6-nDPSp4oJwUtOTuBV1UCK5jXcC9h-UyE_8_TGUzTBctQ_zG_1qAy5Xfhveg_8aJccGa1bC_mvlJwFI4tH0UPFI_VTAvqSvuFoAzw0dbh5SY4wIRHHkAymrPy1EfLWyEjiGKoq3idED9bq01Ei5jRcNDqLOSBTpuKCqdMiu4jiwgxRzwyTKtTh_n13_1YzqGJHHS1cM84oi-8s5UJgqcGFJp1CqFVhbo8XTXvh0x8HloF80');"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl drop-shadow-md">location_on</span>
+</div>
+<div class="absolute bottom-2 right-2 flex gap-1">
+<button class="bg-white dark:bg-slate-800 p-1.5 rounded shadow text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+<button class="bg-white dark:bg-slate-800 p-1.5 rounded shadow text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+</div>
+<div class="absolute top-2 left-2">
+<div class="bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded text-[10px] font-mono shadow-sm">
+                                                Lat: 19.0760, Lon: 72.8777
+                                            </div>
+</div>
+</div>
+<p class="text-[10px] text-slate-500 mt-2 italic">Drag the marker to the exact warehouse entrance for logistics optimization.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-between mt-4 pb-12">
+<button class="flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-slate-200 dark:border-slate-800 font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+                            Previous Step
+                        </button>
+<div class="flex gap-4">
+<button class="px-6 py-3 rounded-lg font-bold text-slate-500 hover:text-primary transition-colors">
+                                Save Draft
+                            </button>
+<button class="flex items-center gap-2 px-8 py-3 rounded-lg bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all hover:-translate-y-0.5">
+                                Save &amp; Continue
+                                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Note -->
+<footer class="text-center py-6 text-slate-400 dark:text-slate-600 text-xs border-t border-slate-200 dark:border-slate-800">
+                © 2024 Modern Colours Pvt. Ltd. • Logistics &amp; Supply Chain Portal • All Data Encrypted
+            </footer>
+</div>
+</div>
+</body></html>
